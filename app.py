@@ -11,9 +11,9 @@ reddit={
 catapi = {
     "apiKey":cat-api-string:str #curentyl not using, not neccesery
 }
-42
+
 """
-import discord
+import discord,os
 import praw
 import time,random
 import requests as r
