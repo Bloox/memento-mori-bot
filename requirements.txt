@@ -10,7 +10,6 @@ bidict==0.21.2
 bottle==0.12.19
 bottle-websocket==0.2.9
 bs4==0.0.1
-cefpython3==66.1
 certifi==2021.5.30
 cffi==1.15.0
 chardet==4.0.0
@@ -51,7 +50,7 @@ moviepy==1.0.3
 multidict==6.0.2
 nest-asyncio==1.5.4
 
-nutshell==0.6.3
+
 openpyxl==3.0.9
 packaging==21.3
 pandas==1.4.2
