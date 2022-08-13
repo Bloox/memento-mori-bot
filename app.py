@@ -31,6 +31,7 @@ class Gungnir(discord.Client):
         print(f"We are setup! USER: {self.user}")
 
     async def on_message(self,msg):
+        #*COMMENDS
         if msg.content.startswith("$"):
             #URBAN DICTIONARY COMAND
             if msg.content.startswith("$dict"):
@@ -47,7 +48,25 @@ class Gungnir(discord.Client):
                 await msg.channel.send(self.make_cat_request())
             elif msg.content.startswith("$quin_"):
                 await msg.channel.send(file=discord.File("app.py"))
-            
+            elif msg.content.startswith("$round"):
+              data=msg.content.split(" ")
+              if len(data)==2:
+                try:
+                  float(data[1])
+                  if data[1]=="42":
+                    await msg.channel.send("1.618033988749894")
+                  else:
+                    await msg.channel.send("42")
+                except:
+                  data = [i for i in data[1]]
+                  last = data[-1]
+                  data.pop(-1)
+                  data = [last] + data
+                  await msg.channel.send("".join(data))
+                
+
+
+        #! SPECIAL EMBEDS!
         elif msg.content.startswith("https://www.reddit.com/r/"):
             cooldown=time.time() - self.reddit_timeout
             if cooldown > 10:
@@ -58,7 +77,12 @@ class Gungnir(discord.Client):
                 await msg.delete()
             else:
                 await msg.channel.send(f"reddit has cool down: {cooldown}s")
+        
+        elif (msg.content.startswith("https://www.instagram.com/p/")) & (msg.author.bot == False):
+          await msg.channel.send(msg.content+"/media/?size=l")
+        
 
+        #! reditor channel
         elif msg.channel.name.startswith("reditor"):
             if msg.content.startswith("$"):
                 cooldown=time.time() - self.reddit_timeout
