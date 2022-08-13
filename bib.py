@@ -1,3 +1,33 @@
+import random
+def random_title(msg):
+    starters = [
+        "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
+        "Chosen ","Psychopatchic ","English ",'Slavic ',"Romanic ",
+        "Accuret","Powered ",'Immortal'
+    ]
+    number=str(random.randrange(0,99))
+    if len(number)<2:
+        number='0'+number
+    enders =  [
+        "son of Vallhala","gang lider", "Cryptoman","Pretender",
+        "king of evil", "Horsmen of Apocalypsa","Messenger of death",
+        "Programmer of Reality","Spolier in your car","Men in your walls",
+        "fanatic of Mythology", "Harvester of moon","Plag doctor","Kingsmen",
+        "personfication of Cats","Marchant indead","Dead in Person","aka Death",
+        "Cousin of Hades","Grandparent of Gaia","the Great",'egyptian Goddes',
+        "Godlike",f'number {number}','Doctor of Chaos',f"scp-4242240{number}",
+    ]
+    num = [
+        "XXXXII",
+        "IX",
+        "XIII",
+        "IVXXXX",
+        "XVI",
+        "XVIII",
+        "XII",
+        "ICXIVI",
+    ]
+    return msg.author.name +" "+ random.choice(starters) + random.choice(enders) + ' ' + random.choice(num)
 sins_e = [
     "you only sin is iq %s",
     "your sin is amout of social interactions %s",
@@ -155,5 +185,66 @@ sins_e = [
     "Data not found",
     "Joahim its correct speeling",
     "ϡ - Sampi",
-    "424224067 is prime"
-    ]
+    "424224067 is prime",
+    "Craby w Grach",
+    "Crap skład i Gry z kosza",
+    "Hedowa linia kosmemytków do włosów kręconych",
+    "To znowu oni!",
+    "Ku chwale Miedzińskiego",
+    "+1 Mietczyński",
+    "Erwin Schrödinger and his Cat",
+    "End is never the End is never the ...",
+    "The end is night",
+    "Co robie papierek na szczycie góry? Celeści",
+    "UNUSUAL MEMES COMPILAION V42",
+    "In memory of: Gravity Falls",
+    "Marc Specter",
+    "Marko 27",
+    "Pancake shot",
+    "Pasta, Chees & Tomatos",
+    "Puzzle games!",
+    "Platformer games!",
+    "Remember kido, do not play with genshino",
+    "Remember kido, don't watch tiktiko",
+    "Remember kido, don't play fortnito",
+    "Pamiętaj cholero nigdy nie dziel przez 0!",
+    "n/0 = ∅",
+    "Tamashi",
+    "Baba is Love",
+    "Textorcis more like Notfunrcis",
+    "Happy meat farm",
+    "Pizza is a sandwich",
+    "my favorit meal sand wich",
+    "7 bilion Robots",
+    "Toiletturret (pozdro dla kumatych)",
+    "Can i cook chicken by slapping it?",
+    "Bad Dream: Narcoza",
+    "Botanimacula",
+    "Browara halla?",
+    'Bracia - Opowiesz dwojga synowie',
+    "Dumpster Truck",
+    "Teapothead, Don't deal with The Server",
+    "Δ🏃 1 & 2",
+    "Cardydungeon",
+    "Lagtorio",
+    "Geomatry Mash",
+    "Helltaker (nie ma przeróbki bo w samo sobie to parodnia)",
+    "Logic Morph",
+    "Mitoza",
+    "Portal wombat X",
+    "Portal wombat 11",
+    "Noita was Wita",
+    "Patrykalny Parapudełkalny",
+    "Four horsmen of modern apocalipsa:\n1.Tiktok\n2.Fortnie\n3.Free online tutorials\n4.123 go!",
+    "No … I am your Father…",
+    "Dziwniejsze żeczy",
+    "Dobry zły znak", 
+    "Terry prechet!",
+    "Mak Kwacz",
+    "Panie doceńcie doceń mnie pan!",
+    "Styrta się pali!",
+    "h4rdy +0 d3c0d3!",
+    "The Świadek",
+]
+
+sins_e+=[random_title]*20
