@@ -19,6 +19,7 @@ import time,random
 import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
+import bib
 
 reddit = praw.Reddit(client_id=token.reddit['id'], client_secret=token.reddit['secret'],user_agent="<console:DISCORDBOT:1.0>")
 
@@ -66,7 +67,27 @@ class Gungnir(discord.Client):
                 
             elif msg.content.startswith("$ping"):
                 await msg.channel.send("pong!")
-
+            elif msg.content.startswith("$sin"):
+                data= msg.content.split(" ")
+                if len(data)==1:
+                    c = random.choice(bib.sins_e)
+                    if "%s" in c:
+                        c= c%msg.author.name
+                    await  msg.channel.send(c)
+                elif len(data)==2:
+                    if data[1]=="42":
+                        await msg.channel.send("-0.9165215479156338")
+                    else:
+                        await msg.channel.send("~")
+            elif msg.content.startswith("$mul"):
+                data = msg.content.split(" ")
+                if len(data)!=3:
+                    await msg.channel.send("you need to specify 2 arguments")
+                else:
+                    await msg.channel.send("do you meen: 6*7 = 42?")
+            
+        
+        
         #! SPECIAL EMBEDS!
         elif msg.content.startswith("https://www.reddit.com/r/"):
             cooldown=time.time() - self.reddit_timeout
