@@ -20,6 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
+version="42.0.004"
+
 def f():
     return 0
 reddit = praw.Reddit(client_id=token.reddit['id'], client_secret=token.reddit['secret'],user_agent="<console:DISCORDBOT:1.0>")
@@ -88,8 +90,9 @@ class Gungnir(discord.Client):
                     await msg.channel.send("you need to specify 2 arguments")
                 else:
                     await msg.channel.send("do you meen: 6*7 = 42?")
-            
-        
+            elif msg.content.startswith("$version"):
+                await msg.channel.send("version:"+version)
+                await msg.channel.send("essteregglib:"+bib.version)
         
         #! SPECIAL EMBEDS!
         elif msg.content.startswith("https://www.reddit.com/r/"):

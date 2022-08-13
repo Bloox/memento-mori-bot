@@ -1,4 +1,7 @@
 import random
+
+version="42. 1/0" #for every new version increase number befor /
+
 def random_title(msg):
     starters = [
         "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
