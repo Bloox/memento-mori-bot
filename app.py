@@ -64,7 +64,8 @@ class Gungnir(discord.Client):
                   data = [last] + data
                   await msg.channel.send("".join(data))
                 
-
+            elif msg.content.startswith("$ping"):
+                await msg.channel.send("pong!")
 
         #! SPECIAL EMBEDS!
         elif msg.content.startswith("https://www.reddit.com/r/"):
