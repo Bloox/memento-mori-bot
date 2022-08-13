@@ -20,7 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-
+def f():
+    return 0
 reddit = praw.Reddit(client_id=token.reddit['id'], client_secret=token.reddit['secret'],user_agent="<console:DISCORDBOT:1.0>")
 
 class Gungnir(discord.Client):
@@ -71,6 +72,8 @@ class Gungnir(discord.Client):
                 data= msg.content.split(" ")
                 if len(data)==1:
                     c = random.choice(bib.sins_e)
+                    if type(c)==type(f):
+                        c=c(msg)
                     if "%s" in c:
                         c= c%msg.author.name
                     await  msg.channel.send(c)
