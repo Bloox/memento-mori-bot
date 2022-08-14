@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.2"
+version="42.0.004.21"
 
 def f():
     return 0
@@ -90,12 +90,12 @@ class Gungnir(discord.Client):
                     ID=-random.randint(1,2)
                     data = bib.random_title(msg)
                     await msg.author.edit(nick=data)
-                    await msg.channel.send(f"Welcom our new companian:{msg.author.mention}")
+                    await msg.channel.send(f"Welcom our new companian:{data}")
                 elif msg.content.startswith("$prist"):
                     ID=-random.randint(1,2)
                     prist_name=bib.random_title(msg,starter=0,indexB=ID)
-                    await msg.author.edit(nick=prist_name)
-                    await msg.channel.send(f"Welcom aboard Your highnest {msg.author.mention}")
+                    
+                    await msg.channel.send(f"Welcom aboard Your highnest {prist_name}")
                 elif msg.content.startswith("$rename"):
                     data=msg.content.split(" ")
                     if len(data)==2:
