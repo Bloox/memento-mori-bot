@@ -89,7 +89,6 @@ class Gungnir(discord.Client):
                 elif msg.content.startswith("$title"):
                     ID=-random.randint(1,2)
                     data = bib.random_title(msg)
-                    await msg.author.edit(nick=data)
                     await msg.channel.send(f"Welcom our new companian:{data}")
                 elif msg.content.startswith("$prist"):
                     ID=-random.randint(1,2)
