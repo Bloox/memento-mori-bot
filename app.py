@@ -37,81 +37,84 @@ class Gungnir(discord.Client):
     async def on_message(self,msg):
         #*COMMENDS
         if msg.content.startswith("$"):
-            #URBAN DICTIONARY COMAND
-            if msg.content.startswith("$dict"):
-                content=msg.content.split(" ")
-                word=content[1]
-                embed =self.get_urban(word,False)
-                await msg.channel.send(embed=embed)
-            elif msg.content.startswith("$dictR"):
-                content=msg.content.split(" ")
-                word=content[1]
-                embed =self.get_urban(word,True)
-                await msg.channel.send(embed=embed)
-            elif msg.content.startswith("$rcat"):
-                await msg.channel.send(self.make_cat_request())
-            elif msg.content.startswith("$quin_"):
-                await msg.channel.send(file=discord.File("app.py"))
-            elif msg.content.startswith("$round"):
-              data=msg.content.split(" ")
-              if len(data)==2:
-                try:
-                  float(data[1])
-                  if data[1]=="42":
-                    await msg.channel.send("1.618033988749894")
-                  else:
-                    await msg.channel.send("42")
-                except:
-                  data = [i for i in data[1]]
-                  last = data[-1]
-                  data.pop(-1)
-                  data = [last] + data
-                  await msg.channel.send("".join(data))
-                
-            elif msg.content.startswith("$ping"):
-                await msg.channel.send("pong!")
-            elif msg.content.startswith("$sin"):
-                data= msg.content.split(" ")
-                if len(data)==1:
-                    c = random.choice(bib.sins_e)
-                    if type(c)==type(f):
-                        c=c(msg)
-                    if "%s" in c:
-                        c= c%msg.author.name
-                    await  msg.channel.send(c)
-                elif len(data)==2:
-                    if data[1]=="42":
-                        await msg.channel.send("-0.9165215479156338")
+            try:
+            
+                #URBAN DICTIONARY COMAND
+                if msg.content.startswith("$dict"):
+                    content=msg.content.split(" ")
+                    word=content[1]
+                    embed =self.get_urban(word,False)
+                    await msg.channel.send(embed=embed)
+                elif msg.content.startswith("$dictR"):
+                    content=msg.content.split(" ")
+                    word=content[1]
+                    embed =self.get_urban(word,True)
+                    await msg.channel.send(embed=embed)
+                elif msg.content.startswith("$rcat"):
+                    await msg.channel.send(self.make_cat_request())
+                elif msg.content.startswith("$quin_"):
+                    await msg.channel.send(file=discord.File("app.py"))
+                elif msg.content.startswith("$round"):
+                    data=msg.content.split(" ")
+                    if len(data)==2:
+                        try:
+                            float(data[1])
+                            if data[1]=="42":
+                                await msg.channel.send("1.618033988749894")
+                            else:
+                                await msg.channel.send("42")
+                        except:
+                            data = [i for i in data[1]]
+                            last = data[-1]
+                            data.pop(-1)
+                            data = [last] + data
+                            await msg.channel.send("".join(data))
+                    
+                elif msg.content.startswith("$ping"):
+                    await msg.channel.send("pong!")
+                elif msg.content.startswith("$sin"):
+                    data= msg.content.split(" ")
+                    if len(data)==1:
+                        c = random.choice(bib.sins_e)
+                        if type(c)==type(f):
+                            c=c(msg)
+                        if "%s" in c:
+                            c= c%msg.author.name
+                        await  msg.channel.send(c)
+                    elif len(data)==2:
+                        if data[1]=="42":
+                            await msg.channel.send("-0.9165215479156338")
+                        else:
+                            await msg.channel.send("~")
+                elif msg.content.startswith("$title"):
+                    ID=-random.randint(1,2)
+                    data = bib.random_title(msg)
+                    await msg.author.edit(nick=data)
+                    await msg.channel.send(f"Welcom our new companian:{msg.author.mention}")
+                elif msg.content.startswith("$prist"):
+                    ID=-random.randint(1,2)
+                    prist_name=bib.random_title(msg,indexB=ID)
+                    await msg.author.edit(nick=prist_name)
+                    await msg.channel.send(f"Welcom aboard Your highnest {msg.author.mention}")
+                elif msg.content.startswith("$rename"):
+                    data=msg.content.split(" ")
+                    if len(data)==2:
+                        name=data[-1]
+                        await msg.author.edit(nick=name)
+                        await msg.channel.send(f"Your new identity is: {msg.author.mention}")
                     else:
-                        await msg.channel.send("~")
-            elif msg.content.startswith("$title"):
-                ID=-random.randint(1,2)
-                data = bib.random_title(msg)
-                await msg.author.edit(nick=data)
-                await msg.channel.send(f"Welcom our new companian:{msg.author.mention}")
-            elif msg.content.startswith("$prist"):
-                ID=-random.randint(1,2)
-                prist_name=bib.random_title(msg,indexB=ID)
-                await msg.author.edit(nick=data)
-                await msg.channel.send(f"Welcom aboard Your highnest {msg.author.mention}")
-            elif msg.content.startswith("$rename"):
-                data=msg.content.split(" ")
-                if len(data)==2:
-                    name=data[-1]
-                    await msg.author.edit(nick=name)
-                    await msg.channel.send(f"Your new identity is: {msg.author.mention}")
-                else:
-                    await msg.channel.send("418 - 🫖")
-            elif msg.content.startswith("$mul"):
-                data = msg.content.split(" ")
-                if len(data)!=3:
-                    await msg.channel.send("you need to specify 2 arguments")
-                else:
-                    await msg.channel.send("do you meen: 6*7 = 42?")
-            elif msg.content.startswith("$version"):
-                await msg.channel.send("version:"+version)
-                await msg.channel.send("essteregglib:"+bib.version)
-        
+                        await msg.channel.send("418 - 🫖")
+                elif msg.content.startswith("$mul"):
+                    data = msg.content.split(" ")
+                    if len(data)!=3:
+                        await msg.channel.send("you need to specify 2 arguments")
+                    else:
+                        await msg.channel.send("do you meen: 6*7 = 42?")
+                elif msg.content.startswith("$version"):
+                    await msg.channel.send("version:"+version)
+                    await msg.channel.send("essteregglib:"+bib.version)
+            except Exception as e:
+                await msg.channel.send(f"{e}")
         #! SPECIAL EMBEDS!
         elif msg.content.startswith("https://www.reddit.com/r/"):
             cooldown=time.time() - self.reddit_timeout
