@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.1"
+version="42.0.004.2"
 
 def f():
     return 0
@@ -86,10 +86,22 @@ class Gungnir(discord.Client):
                         await msg.channel.send("~")
             elif msg.content.startswith("$title"):
                 ID=-random.randint(1,2)
-                await msg.channel.send(bib.random_title(msg))
+                data = bib.random_title(msg)
+                await msg.author.edit(nick=data)
+                await msg.channel.send(f"Welcom our new companian:{msg.author.mention}")
             elif msg.content.startswith("$prist"):
                 ID=-random.randint(1,2)
-                await msg.channel.send(bib.random_title(msg,indexB=ID))
+                prist_name=bib.random_title(msg,indexB=ID)
+                await msg.author.edit(nick=data)
+                await msg.channel.send(f"Welcom aboard Your highnest {msg.author.mention}")
+            elif msg.content.startswith("$rename"):
+                data=msg.content.split(" ")
+                if len(data)==2:
+                    name=data[-1]
+                    await msg.author.edit(nick=name)
+                    await msg.channel.send(f"Your new identity is: {msg.author.mention}")
+                else:
+                    await msg.channel.send("418 - 🫖")
             elif msg.content.startswith("$mul"):
                 data = msg.content.split(" ")
                 if len(data)!=3:
