@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004"
+version="42.0.004.1"
 
 def f():
     return 0
@@ -84,6 +84,12 @@ class Gungnir(discord.Client):
                         await msg.channel.send("-0.9165215479156338")
                     else:
                         await msg.channel.send("~")
+            elif msg.content.startswith("$title"):
+                ID=-random.randint(1,2)
+                await msg.channel.send(bib.random_title(msg))
+            elif msg.content.startswith("$prist"):
+                ID=-random.randint(1,2)
+                await msg.channel.send(bib.random_title(msg,indexB=ID))
             elif msg.content.startswith("$mul"):
                 data = msg.content.split(" ")
                 if len(data)!=3:

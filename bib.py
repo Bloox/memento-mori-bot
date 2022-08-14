@@ -1,12 +1,23 @@
+from operator import index
 import random
 
-version="42. 2/0" #for every new version increase number befor /
+version="42. 3/0" #for every new version increase number befor /
 
-def random_title(msg):
+def random_title(msg,indexA=None,indexB=None):
+    gods = [
+        "Artemis","Athena","Hephaestus","Hades",'Tanatos',"Morpheus",'Tartarus',
+        "Flying Spaghetti Monster","Cthulhu","True","Lie","Azothot","Spthot","Nyks","Chaos",
+        "Dreamer","Eldrich ones","the Uninvited","Eros","Law","Justice","One who watch us",
+        "One from beyond words",'One above our world',"Who think","Odin","Thor","Loki","Monokuma",
+        "From upsidedown","Karl with the Hat","Tinkerer of existenc","Apollo","the Sun","Higher being",
+        "of Greates evil","Death, last horsmen of the apocalypse","War, second horsmen of the apocalypse",
+        "Conquest first horsmen of the apocalypse","Famine third horsmen of the apocalypse",
+        "Youtube algoritmes"
+    ]
     starters = [
         "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
         "Chosen ","Psychopatchic ","English ",'Slavic ',"Romanic ",
-        "Accuret","Powered ",'Immortal'
+        "Accuret ","Powered ",'Immortal ',"Actual "
     ]
     number=str(random.randrange(0,99))
     if len(number)<2:
@@ -19,6 +30,8 @@ def random_title(msg):
         "personfication of Cats","Marchant indead","Dead in Person","aka Death",
         "Cousin of Hades","Grandparent of Gaia","the Great",'egyptian Goddes',
         "Godlike",f'number {number}','Doctor of Chaos',f"scp-4242240{number}",
+        "The Dreamer","The Executer","Savior of worlds",'Destroyer of words',
+        "Great Dreamer",f"Higher Prist of {random.choice(gods)}",f"Prist of {random.choice(gods)}"
     ]
     num = [
         "XXXXII",
@@ -30,7 +43,11 @@ def random_title(msg):
         "XII",
         "ICXIVI",
     ]
-    return msg.author.name +" "+ random.choice(starters) + random.choice(enders) + ' ' + random.choice(num)
+    if indexA==None:
+        indexA=random.randrange(0,len(starters))
+    if indexB==None:
+        indexB=random.randrange(0,len(enders))
+    return msg.author.name +" "+ starters[indexA] + enders[indexB] + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
 sins_e = [
     "you only sin is iq %s",
     "your sin is amout of social interactions %s",
@@ -260,7 +277,7 @@ sins_e = [
     "So you are programmer? then center div both horizontal and vertical",
     "Well in that case",
     "Are you human?",
-    "Staszek pije *Kompci*",
+    "Staszek pije *Kompocik*",
     "*itali* **bold** ||spoiler||",
     "Mark Rober",
     "H₂O",
@@ -346,12 +363,41 @@ sins_e = [
     "↑↑↓↓←→←→AB,START",
     "My father hate bugs",
     "Mógłbym jeśc naleśniki całe życie",
+    "I am operator of my pocke calculator",
+    "You will be Okey",
+    "Materials can't go to Heven, they just endup in recycle bin",
+    "Never say never exept where you say that exact line",
+    "Beep Beep I'm a Sheep",
+    "He is gay or european is hard to guarantee!",
+    "To be continued!",
+    "Brimstone!",
+    "C,C++,C# or CARBON?",
+    "JS,typescript,node.js",
+    "Python,Ruby,Go",
+    "Java,Kotlin",
+    "```py\nmsg=lambda: random.choice(sins_e)```",
+    "```py\nc='c=%r;print(c%%c)';print(c%c)```",
+    'exec(s:=\'print("exec(s:=%r)"%s)\')'
+    'Litarature Club!',
+    "Anolog horror!",
+    "THIS IS YELLING FOR MOJANG",
+    "dlaczego √2 zabiłó 3? bo jest nie obliczalne!",
+    "DON`T always USE CAPSLOCK",
+    "Sok z kaktusa, bardzo pyszny i odżwyczy!",
+    "Smartgasm: Zaraz pokaże jak zmienić kostke `Co` w super radioaktywnty `⁶⁰Co`, opowiem też jak zrobić z niego bombe kobaltową...",
     "" 
-]
 
+]
+class DummName:
+    name="none"
+class Dummy:
+    author=DummName
+
+#bottom anchorn
 sins_e+=[random_title]*25
 
 
 
 sins_e+=[f"lącznie napisałem: {len(sins_e)+1} tekstów do tego"]
 print(sins_e[-1])
+print(random_title(Dummy(),indexB=-1))
