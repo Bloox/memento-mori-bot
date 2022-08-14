@@ -93,7 +93,7 @@ class Gungnir(discord.Client):
                     await msg.channel.send(f"Welcom our new companian:{msg.author.mention}")
                 elif msg.content.startswith("$prist"):
                     ID=-random.randint(1,2)
-                    prist_name=bib.random_title(msg,indexB=ID)
+                    prist_name=bib.random_title(msg,starter=0,indexB=ID)
                     await msg.author.edit(nick=prist_name)
                     await msg.channel.send(f"Welcom aboard Your highnest {msg.author.mention}")
                 elif msg.content.startswith("$rename"):

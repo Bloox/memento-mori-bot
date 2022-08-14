@@ -1,9 +1,9 @@
 from operator import index
 import random
 
-version="42. 3/0" #for every new version increase number befor /
+version="42. 3.5/0" #for every new version increase number befor /
 
-def random_title(msg,indexA=None,indexB=None):
+def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
     gods = [
         "Artemis","Athena","Hephaestus","Hades",'Tanatos',"Morpheus",'Tartarus',
         "Flying Spaghetti Monster","Cthulhu","True","Lie","Azothot","Spthot","Nyks","Chaos",
@@ -47,7 +47,7 @@ def random_title(msg,indexA=None,indexB=None):
         indexA=random.randrange(0,len(starters))
     if indexB==None:
         indexB=random.randrange(0,len(enders))
-    return msg.author.name +" "+ starters[indexA] + enders[indexB] + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
+    return msg.author.name +" "+ starters[indexA]*starter + enders[indexB]*ender + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
 sins_e = [
     "you only sin is iq %s",
     "your sin is amout of social interactions %s",
