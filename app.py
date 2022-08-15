@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.24"
+version="42.0.004.25"
 
 def f():
     return 0
@@ -34,8 +34,8 @@ class Gungnir(discord.Client):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
         bot_info=1008723567896182885
-        channel = discord.utils.get(self.client.get_all_channels(), id=bot_info)
-        for i in channel.history().flatten():
+        channel = discord.utils.get(self.get_all_channels(), id=bot_info)
+        for i in await channel.history().flatten():
             await i.delete()
         await channel.send("version:"+version)
         await channel.send("essteregglib:"+bib.version)
