@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.23"
+version="42.0.004.24"
 
 def f():
     return 0
