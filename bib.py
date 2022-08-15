@@ -1,7 +1,6 @@
-from operator import index
 import random
-update_name="Diskney"
-version="42. 4/0" #for every new version increase number befor /
+update_name="Youtube update"
+version="42. 5/0" #for every new version increase number befor /
 
 def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
     gods = [
@@ -372,7 +371,7 @@ sins_e = [
     "Brimstone!",
     "C,C++,C# or CARBON?",
     "JS,typescript,node.js",
-    "Python,Ruby,Go",
+    "Brainfuck,Malbolge,Whitespace",
     "Java,Kotlin",
     "```py\nmsg=lambda: random.choice(sins_e)```",
     "```py\nc='c=%r;print(c%%c)';print(c%c)```",
@@ -451,7 +450,47 @@ sins_e = [
     "Herkules more like Dumbandusless",
     "Herkules more like HERAkles",
     "Tarzan po ziemi",
-    f"Updata:{update_name}"
+    "tidzimi:Chińskie Bajki",
+    f"Updata:{update_name}",
+    "HypeTrain D+",
+    "HBO max",
+    "Netflix",
+    "Amazon Prime Video",
+    "Player-",
+    "Enjoy RoxMb - XD",
+    "Rotten Groom",
+    "Night Befor Easter",
+    "Reymond Red Redington",
+    "In memory of Zachtronics",
+    "^-^",
+    "Pół Życie",
+    "Bird-human",
+    "Phonix-human",
+    "I am potato rick!",
+    "Chees,pasta and eggs; my recomendation",
+    "Non-nativerock",
+    "150-hour Spaghetti bolognese",
+    'że też mnie to nie tidzimi',
+    "Alan Blacker",
+    "AugustTheGoos",
+    "Begula",
+    "BenDoker",
+    "Ciumkal Smoczki R.I.P",
+    'Corle was wytłumaczy co to za biała substancja',
+    "Dani goes for milk",
+    "Dr Bond",
+    "Emce▲" ,
+    "Forggotten",
+    "Airship.io",
+    "Gaming on Teafeine",
+    "Harry404UK",
+    "iammotherbod",
+    "Fiery Puzzle",
+    "ilmelon",
+    "JK legoworks",
+    "Juseppi",
+    "Jo🔑po🔑",
+    "Jon Duo",
 
 ]
 class DummName:
@@ -460,7 +499,7 @@ class Dummy:
     author=DummName
 
 #bottom anchorn
-sins_e+=[random_title]*int(len(sins_e)*0.32) #making this more often
+sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
 
 
 
