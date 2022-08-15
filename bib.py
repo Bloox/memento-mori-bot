@@ -389,7 +389,7 @@ sins_e = [
 
 ]
 class DummName:
-    name="none"
+    name="Memento Mori"
 class Dummy:
     author=DummName
 

@@ -13,7 +13,7 @@ catapi = {
 }
 
 """
-import discord,os
+import discord,os,asyncio
 import praw
 import time,random
 import requests as r
@@ -34,6 +34,26 @@ class Gungnir(discord.Client):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
 
+    async def change_myself(self):
+        await client.wait_until_ready()
+        names = [
+                "Prist of Konshu",
+                "Memenot Mori",
+                "Destroyer of worlds",
+                "Prist of Tanatos",
+                "Halper of Stars",
+                "5th Horsemen",
+                "Prist of Cats",
+                "mr Death",
+                "mr Law",
+            ]
+        while not client.is_closed():
+            decsr = self.bib_help(msg=bib.Dummy())
+
+            await self.change_presence(game=discord.Game(name=decsr))
+            await self.user.edit(nickname=random.choice(names))
+
+            await asyncio.sleep(360)
     async def on_message(self,msg):
         #*COMMENDS
         if msg.content.startswith("$"):
@@ -75,12 +95,7 @@ class Gungnir(discord.Client):
                 elif msg.content.startswith("$sin"):
                     data= msg.content.split(" ")
                     if len(data)==1:
-                        c = random.choice(bib.sins_e)
-                        if type(c)==type(f):
-                            c=c(msg)
-                        if "%s" in c:
-                            c= c%msg.author.name
-                        await  msg.channel.send(c)
+                        await msg.channel.send(self.bib_help(msg=msg))
                     elif len(data)==2:
                         if data[1]=="42":
                             await msg.channel.send("-0.9165215479156338")
@@ -89,6 +104,7 @@ class Gungnir(discord.Client):
                 elif msg.content.startswith("$title"):
                     ID=-random.randint(1,2)
                     data = bib.random_title(msg)
+                    
                     await msg.channel.send(f"Welcom our new companian:{data}")
                 elif msg.content.startswith("$prist"):
                     ID=-random.randint(1,2)
@@ -204,7 +220,13 @@ class Gungnir(discord.Client):
         respons=r.get(base_url).json()
 
         return respons[0]['url']
-
+    def bib_help(self,msg):
+        c = random.choice(bib.sins_e)
+        if type(c)==type(f):
+            c=c(msg)
+        if "%s" in c:
+            c= c%msg.author.name
+        return (c)
 client = Gungnir()
-
+client.loop.create_task(client.change_myself())
 client.run(token.token)
