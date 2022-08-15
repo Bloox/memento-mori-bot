@@ -33,6 +33,8 @@ class Gungnir(discord.Client):
     async def on_ready(self):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
+        bot_info=1008723567896182885
+        #discord.TextChannel(id=bot_info)
 
     async def change_myself(self):
         await client.wait_until_ready()
@@ -50,7 +52,7 @@ class Gungnir(discord.Client):
         while not client.is_closed():
             decsr = self.bib_help(msg=bib.Dummy())
 
-            await self.change_presence(game=discord.Game(name=decsr))
+            await self.change_presence(activity=discord.Game(name=decsr))
             await self.user.edit(nickname=random.choice(names))
 
             await asyncio.sleep(360)
