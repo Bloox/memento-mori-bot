@@ -53,7 +53,7 @@ class Gungnir(discord.Client):
             decsr = self.bib_help(msg=bib.Dummy())
 
             await self.change_presence(activity=discord.Game(name=decsr))
-            await self.user.edit(nickname=random.choice(names))
+            #await self.user.edit(nickname=random.choice(names))
 
             await asyncio.sleep(360)
     async def on_message(self,msg):
