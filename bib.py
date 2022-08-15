@@ -1,7 +1,7 @@
 from operator import index
 import random
-
-version="42. 3.5/0" #for every new version increase number befor /
+update_name="Diskney"
+version="42. 4/0" #for every new version increase number befor /
 
 def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
     gods = [
@@ -53,7 +53,7 @@ sins_e = [
     "your sin is amout of social interactions %s",
     "yes you have many of them",
     "no sin  has been found :(",
-    "404666 - no sin has been found"
+    "404666 - no sin has been found",
     "I am teapot 🫖",
     "Your name: %s",
     "Returnig random number in range -∞ to ∞ : 42",
@@ -64,7 +64,7 @@ sins_e = [
     "Bedę go zjadł",
     "--Tutaj wpisz nawiązanie--",
     "Aua!, bcdefghijklmnoprsuwxyz",
-    "Aua!, ciwenia..."
+    "Aua!, ciwenia...",
     "Never gonna give you up, never gonna let you down",
     "Frank:Howard \nHoward:Yes frank",
     "O its you, it was a loooong time, how have you been? i was very busy; being dead",
@@ -118,7 +118,6 @@ sins_e = [
     "11 vs 1",
     'Mindflayer or 1 or Vecna',
     'Vecna want to play some d&d',
-
     "1.618",
     '3.1415',
     "418 - 🫖",
@@ -385,7 +384,74 @@ sins_e = [
     "DON`T always USE CAPSLOCK",
     "Sok z kaktusa, bardzo pyszny i odżwyczy!",
     "Smartgasm: Zaraz pokaże jak zmienić kostke `Co` w super radioaktywnty `⁶⁰Co`, opowiem też jak zrobić z niego bombe kobaltową...",
-    "" 
+    "Ayato gozaimasu",
+    "No goverment plis",
+    "You know, some guys just can't hold their arsenic",
+    "Mroczny złodziej",
+    "Memento Mori vs Vita Aeterna",
+    "Pani Basia",
+    "Acid Dragon",
+    "Nożyczki siódemki",
+    'MRS. HUDSON: "Oh, I\'m sure something will turn up. A nice murder. That\'ll cheer you up'
+    "I'm not a psychopath, I'm a high-functioning sociopath. Do your research.",
+    "456 unfortunutly",
+    "MIB",
+    "There is nothing behind red doors Jane",
+    "𝅘𝅥𝆕0118 999 881 999 119 725.. 3𝅘𝅥𝆕",
+    "Green eggs" ,
+    "To nie jest tak że dobrze, lub nie dobrze...",
+    "Gdybym miał powiedziec co najbadziej cenie w życiu, to powiedział bym ze ludzi",
+    "Jeżeli ja jestem mną bo ty jesteś sobą, a ty jesteś sobą ....",
+    "Ale na siku, nie żeby zabijać",
+    "Ale ten pan dalej nie oddycha",
+    "Polska się nam skończyła [nerwowy śmiech]",
+    "Głupia tak tżywać kumpla w lodziarce, nawet martwego.",
+    "Ty ,ty, ty, ty! Nie bądz taki ornitolog.",
+    "BNA, Brand new Air - Krakow",
+    "The end of the Flirting world",
+    "Horsin` Around",
+    "Tok Tok",
+    "Every time somone take picture of you, he trap part of your soul in it",
+    "This is nicest thing that you said to my dad",
+    "✋Hay Goodbay✋",
+    "Punishment it anthonym of Crime",
+    "So you are gamer? Then mine the Bedrock",
+    "So you know javascript? Then name every fatal error",
+    "John sin",
+    "Phoenix SC",
+    "If you feel usless remember than English quin death Protocole exist",
+    "If you feel usless remember that this bot exist",
+    "Chat report system belong in trash!",
+    "#7834",
+    '@evryone',
+    "@evertwo",
+    "Minectafg PocGet Edition",
+    "<3",
+    "<3",
+    "<3",
+    "Lilo & Kicz",
+    "I am root, Marvel original",
+    "Lighmonth",
+    "Bulian",
+    "Aloic in Whateverland",
+    "Lunar ipposites",
+    "Quenwomens",
+    "Livepool 2, where is Wald",
+    "Raya and the last of us",
+    "Untangled",
+    "Beauty and the Person",
+    "Too big Mermaid",
+    "Coffe Beauty",
+    "Cinicalrella",
+    "MIW",
+    "Princess and The animal right fighters",
+    "The Duck King 1.5 Hakuna Matata",
+    "Nowa szaty Cesarzowej",
+    "Ralph Demolka na Reddicie",
+    "Herkules more like Dumbandusless",
+    "Herkules more like HERAkles",
+    "Tarzan po ziemi",
+    f"Updata:{update_name}"
 
 ]
 class DummName:
@@ -394,7 +460,7 @@ class Dummy:
     author=DummName
 
 #bottom anchorn
-sins_e+=[random_title]*25
+sins_e+=[random_title]*int(len(sins_e)*0.32) #making this more often
 
 
 

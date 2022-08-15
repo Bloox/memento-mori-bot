@@ -20,7 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.25"
+version="42.0.004.26"
+version_name="Cycle & Info"
 
 def f():
     return 0
@@ -38,7 +39,9 @@ class Gungnir(discord.Client):
         for i in await channel.history().flatten():
             await i.delete()
         await channel.send("version:"+version)
+        await channel.send(f"\tName:{version_name}")
         await channel.send("essteregglib:"+bib.version)
+        await channel.send("\tName"+bib.version_name)
         #discord.TextChannel(id=bot_info)
 
     async def change_myself(self):
@@ -60,7 +63,7 @@ class Gungnir(discord.Client):
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit(nickname=random.choice(names))
 
-            await asyncio.sleep(360)
+            await asyncio.sleep(60)
     async def on_message(self,msg):
         #*COMMENDS
         if msg.content.startswith("$"):
