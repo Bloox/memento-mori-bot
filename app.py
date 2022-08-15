@@ -34,6 +34,11 @@ class Gungnir(discord.Client):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
         bot_info=1008723567896182885
+        channel = discord.utils.get(self.client.get_all_channels(), id=bot_info)
+        for i in channel.history().flatten():
+            await i.delete()
+        await channel.send("version:"+version)
+        await channel.send("essteregglib:"+bib.version)
         #discord.TextChannel(id=bot_info)
 
     async def change_myself(self):
