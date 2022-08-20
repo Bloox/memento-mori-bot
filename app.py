@@ -39,9 +39,9 @@ class Gungnir(discord.Client):
         for i in await channel.history().flatten():
             await i.delete()
         await channel.send("version:"+version)
-        await channel.send(f"\tName:{version_name}")
+        await channel.send(f"> Name:{version_name}")
         await channel.send("essteregglib:"+bib.version)
-        await channel.send("\tName"+bib.update_name)
+        await channel.send(f"> Name:"+bib.update_name)
         #discord.TextChannel(id=bot_info)
 
     async def change_myself(self):
