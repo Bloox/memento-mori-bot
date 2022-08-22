@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup as bs
 import key as token
 import bib
 version="42.0.004.26"
-version_name="Cycle & Info"
+version_name="Radzieccy Naukowcy!"
 
 def f():
     return 0
@@ -30,6 +30,9 @@ reddit = praw.Reddit(client_id=token.reddit['id'], client_secret=token.reddit['s
 class Gungnir(discord.Client):
     DATA = {
         "USERS":{"404230163740491777":{"name":"Eragon",}},
+    }
+    PRELOAD = {
+           
     }
     async def on_ready(self):
         self.reddit_timeout=0
@@ -111,6 +114,9 @@ class Gungnir(discord.Client):
                             await msg.channel.send("-0.9165215479156338")
                         else:
                             await msg.channel.send("~")
+                elif msg.content.startswith("$radek"):
+                    await msg.channel.send(embed=self.get_radek())
+                
                 elif msg.content.startswith("$title"):
                     ID=-random.randint(1,2)
                     data = bib.random_title(msg)
@@ -174,6 +180,39 @@ class Gungnir(discord.Client):
                 
                 await msg.channel.send("Mors ad hunc rivum venit")
     
+    def get_radek(self,num=None):
+        #being 
+        if num==None:
+            if "R.PAGES_C" not in self.PRELOAD:
+                main=r.get('http://radzieccyuczeni.pl/category/radzieccy-uczeni/')
+                eff=bs(main.text,features="html.parser")
+                n=int(eff.select_one(".pages").text.split("z ")[1][:-2])
+                self.PRELOAD['R.PAGES_C']=n
+                pages=n
+            else:
+                pages=self.PRELOAD['R.PAGES_C']
+            num=random.randint(1,pages)
+        if 'R.articles' not in self.PRELOAD:
+            self.PRELOAD['R.articles']={}
+        if num not in self.PRELOAD['R.articles']:
+            data = r.get(f"http://radzieccyuczeni.pl/category/radzieccy-uczeni/page/{num}")
+            list=bs(data.text,features="html.parser")
+            self.PRELOAD['R.articles'][num]=[i['href'] for i in list.select(".post > .postmetadata > div > a")]
+        
+        #making embed
+        
+        art=random.choice(self.PRELOAD['R.articles'][num])
+        docs=r.get(art)
+        docs=bs(docs.text,features="html.parser")
+        
+        embed=discord.Embed(
+                url=art,
+                title=docs.select_one(".post>h2").text,
+                color=discord.Colour.from_rgb(0xb9,0x2e,0x2e),
+            )
+        
+        embed.add_field(name="Story",value=docs.select_one(".post > .entry").text,inline=False)
+        return embed
     def get_urban(self,word,rand=False):
         url="https://www.urbandictionary.com/define.php?term="+word.lower()
         website = r.get(url)

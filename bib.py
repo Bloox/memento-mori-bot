@@ -382,7 +382,7 @@ sins_e = [
     "```py\nc='c=%r;print(c%%c)';print(c%c)```",
     'exec(s:=\'print("exec(s:=%r)"%s)\')'
     'Litarature Club!',
-    "Mornel Kornel",
+    "Mornel Kornel - Morneliusz Korneliusz",
     "Anolog horror!",
     "THIS IS YELLING FOR MOJANG",
     "dlaczego √2 zabiłó 3? bo jest nie obliczalne!",
