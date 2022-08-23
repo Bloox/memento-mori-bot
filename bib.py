@@ -2,7 +2,18 @@ import random
 
 version="42. 6+(7/12)/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="Youtube update $ qol changes II"
+update_name="Splash update"
+splash=["terra.txt",'minecraft.txt']
+PRELOAD={"SH":{}}
+def minecraft_splash(msg):
+    chosen=random.choice(splash)
+    if chosen not in PRELOAD['SH']:
+        with open(f"gameslpash/{chosen}",encoding="utf-8") as f:
+            text=f.read()
+            PRELOAD['SH'][chosen]=text.splitlines()
+    #print(chosen)
+    return f"{chosen} says:{random.choice(PRELOAD['SH'][chosen])}"
+
 
 def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
     gods = [
@@ -397,7 +408,7 @@ sins_e = [
     "Pani Basia",
     "Acid Dragon",
     "Nożyczki siódemki",
-    'MRS. HUDSON: "Oh, I\'m sure something will turn up. A nice murder. That\'ll cheer you up'
+    'MRS. HUDSON: "Oh, I\'m sure something will turn up. A nice murder. That\'ll cheer you up',
     "I'm not a psychopath, I'm a high-functioning sociopath. Do your research.",
     "456 unfortunutly",
     "MIB",
@@ -552,7 +563,8 @@ sins_e_1 = [
     "Glyph!",
     "Papa luige",
     "Pozwalam, ja Marek",
-    "Motel Polska"
+    "Motel Polska",
+    "Smigają dziś rośnilnki co?",
 ]
 
 sins_e+=sins_e_1
@@ -562,12 +574,15 @@ class Dummy:
     author=DummName
 
 #bottom anchorn
+
 sins_e+=[f"lącznie napisałem: {len(sins_e)+1} tekstów do tego"]
 print(sins_e[-1])
 update_name+=f"; lines:{len(sins_e)}"
 
-
+sins_e+=[minecraft_splash]*3
 sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
 
 
 #print(random_title(Dummy(),indexB=-1))
+
+#print(minecraft_splash(0))
