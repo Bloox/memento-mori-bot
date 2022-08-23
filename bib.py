@@ -1,6 +1,6 @@
 import random
 
-version="42. 6+(7/12)/0" #for every new version increase number befor /
+version="42. 6,5/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
 update_name="Splash update"
 splash=["terra.txt",'minecraft.txt']
