@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.26"
-version_name="Radzieccy Naukowcy!"
+version="42.0.004.26+(1/2)"
+version_name="No more link in Hell"
 
 def f():
     return 0
@@ -61,8 +61,8 @@ class Gungnir(discord.Client):
                 "mr Law",
             ]
         while not client.is_closed():
-            decsr = self.bib_help(msg=bib.Dummy())
-
+            decsr = self.bib_help(msg=bib.Dummy(),no_links=True)
+            
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit(nickname=random.choice(names))
 
@@ -269,12 +269,18 @@ class Gungnir(discord.Client):
         respons=r.get(base_url).json()
 
         return respons[0]['url']
-    def bib_help(self,msg):
+    def bib_help(self,msg,no_links):
         c = random.choice(bib.sins_e)
         if type(c)==type(f):
             c=c(msg)
         if "%s" in c:
             c= c%msg.author.name
+        while c.startswith("https://") & no_links:
+            c = random.choice(bib.sins_e)
+            if type(c)==type(f):
+                c=c(msg)
+            if "%s" in c:
+                c= c%msg.author.name
         return (c)
 client = Gungnir()
 client.loop.create_task(client.change_myself())

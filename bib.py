@@ -30,9 +30,9 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
     starters = [
         "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
         "Chosen ","Psychopatchic ","English ",'Slavic ',"Romanic ",
-        "Accuret ","Powered ",'Immortal ',"Actual ","Nonperfect","Perfect ",
+        "Accuret ","Powered ",'Immortal ',"Actual ","Nonperfect ","Perfect ",
         "Better ","Worse ","Psychopathic ","Romantic ","Emo ","Memorable ",
-        "Bitter ","Confused ","Bipolar ",
+        "Bitter ","Confused ","Bipolar ","Confused ", "Defused "
     ]
     number=str(random.randrange(0,99))
     if len(number)<2:
@@ -565,6 +565,7 @@ sins_e_1 = [
     "Pozwalam, ja Marek",
     "Motel Polska",
     "Smigają dziś rośnilnki co?",
+    "proper british dishes part 35: pretzels on fucking fire"
 ]
 
 sins_e+=sins_e_1
