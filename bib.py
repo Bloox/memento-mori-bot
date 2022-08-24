@@ -574,7 +574,9 @@ class DummName:
         self.name=name
     #name=
 class Dummy:
-    author=DummName
+    def __init__(self,name="Memento Mori") -> None:
+        self.author=DummName(name)
+    #author=
 
 #bottom anchorn
 
