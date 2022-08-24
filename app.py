@@ -56,12 +56,14 @@ class Gungnir(discord.Client):
         
         while not client.is_closed():
             print('nick')
-            decsr = self.bib_help(msg=bib.Dummy(),no_links=True)
-            #discord.utils.get(self.get_all_members, id=self.id)
-            await self.change_presence(activity=discord.Game(name=decsr))
+
             eff=random.choice(bib.names)
             print(self.home.me,eff)
             await self.home.me.edit(nick=eff)
+
+            decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True)
+            #discord.utils.get(self.get_all_members, id=self.id)
+            await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit()
 
             await asyncio.sleep(60)

@@ -1,6 +1,6 @@
 import random
 
-version="42. 6,(9)/0" #for every new version increase number befor /
+version="42. 6,(9)+0,(0)1/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
 update_name="Nick name update + 1 legendary text"
 splash=["terra.txt",'minecraft.txt']
@@ -570,7 +570,9 @@ sins_e_1 = [
 
 sins_e+=sins_e_1
 class DummName:
-    name="Memento Mori"
+    def __init__(self,name="Memento Mori") -> None:
+        self.name=name
+    #name=
 class Dummy:
     author=DummName
 
