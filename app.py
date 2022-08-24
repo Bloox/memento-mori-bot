@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.26+(1/2)"
-version_name="No more link in Hell"
+version="42.0.004.3"
+version_name="Finaly nick names working"
 
 def f():
     return 0
@@ -38,7 +38,9 @@ class Gungnir(discord.Client):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
         bot_info=1008723567896182885
-        channel = discord.utils.get(self.get_all_channels(), id=bot_info)
+        self.channel = discord.utils.get(self.get_all_channels(), id=bot_info)
+        self.home = self.channel.guild
+        channel= self.channel
         for i in await channel.history().flatten():
             await i.delete()
         await channel.send("version:"+version)
@@ -49,6 +51,8 @@ class Gungnir(discord.Client):
 
     async def change_myself(self):
         await client.wait_until_ready()
+        self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
+        self.home = self.channel.guild
         names = [
                 "Prist of Konshu",
                 "Memenot Mori",
@@ -61,10 +65,14 @@ class Gungnir(discord.Client):
                 "mr Law",
             ]
         while not client.is_closed():
+            print('nick')
             decsr = self.bib_help(msg=bib.Dummy(),no_links=True)
-            
+            #discord.utils.get(self.get_all_members, id=self.id)
             await self.change_presence(activity=discord.Game(name=decsr))
-            #await self.user.edit(nickname=random.choice(names))
+            eff=random.choice(names)
+            print(self.home.me,eff)
+            await self.home.me.edit(nick=eff)
+            #await self.user.edit()
 
             await asyncio.sleep(60)
     async def on_message(self,msg):
