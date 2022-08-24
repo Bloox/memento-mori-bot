@@ -1,8 +1,8 @@
 import random
 
-version="42. 6,5/0" #for every new version increase number befor /
+version="42. 6,(9)/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="Splash update"
+update_name="Nick name update + 1 legendary text"
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
 def minecraft_splash(msg):
@@ -584,6 +584,42 @@ sins_e+=[minecraft_splash]*3
 sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
 
 
+names = [
+    "Prist of Konshu",
+    "Memenot Mori",
+    "Destroyer of worlds",
+    "Prist of Tanatos",
+    "Halper of Stars",
+    "5th Horsemen",
+    "Prist of Cats",
+    "mr Death",
+    "mr Law",
+    "Prist of Cthulhu",
+    "Conquerer",
+    "Prist of ♎︎",
+    "Prist of ♋︎",
+    "Divine Ruler",
+    "101010(2)",
+    "Crazy Doctor",
+    'Dr Bright',
+    'scp-963',
+    "Allknowing",
+    "Him, a Libra",
+    "Disruptor",
+    "Dreaming One",
+    "Dead One",
+    "Undead One",
+    "HIM",
+    "NOT",
+    "Doppelganger",
+    "Highest",
+    "Lowest",
+    "All IS NOT Baba",
+    "KNOWING ONE",
+    "Definition of knowledger"
+
+]
 #print(random_title(Dummy(),indexB=-1))
 
 #print(minecraft_splash(0))
+print(f"Zarejestrowane nicki:{len(names)}")

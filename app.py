@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.3"
-version_name="Finaly nick names working"
+version="42.0.004.31"
+version_name="Nick name extension"
 
 def f():
     return 0
@@ -53,23 +53,13 @@ class Gungnir(discord.Client):
         await client.wait_until_ready()
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
         self.home = self.channel.guild
-        names = [
-                "Prist of Konshu",
-                "Memenot Mori",
-                "Destroyer of worlds",
-                "Prist of Tanatos",
-                "Halper of Stars",
-                "5th Horsemen",
-                "Prist of Cats",
-                "mr Death",
-                "mr Law",
-            ]
+        
         while not client.is_closed():
             print('nick')
             decsr = self.bib_help(msg=bib.Dummy(),no_links=True)
             #discord.utils.get(self.get_all_members, id=self.id)
             await self.change_presence(activity=discord.Game(name=decsr))
-            eff=random.choice(names)
+            eff=random.choice(bib.names)
             print(self.home.me,eff)
             await self.home.me.edit(nick=eff)
             #await self.user.edit()
