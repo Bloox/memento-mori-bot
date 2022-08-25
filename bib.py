@@ -620,7 +620,8 @@ names = [
     "Lowest",
     "All IS NOT Baba",
     "KNOWING ONE",
-    "Definition of knowledger"
+    "Definition of knowledger",
+    "https://cdn.discordapp.com/attachments/998700147955486740/1012019326452256841/unknown.png",
 
 ]
 #print(random_title(Dummy(),indexB=-1))

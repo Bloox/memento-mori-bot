@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.31"
+version="42.0.004.32"
 version_name="Nick name extension"
 
 def f():
@@ -269,7 +269,7 @@ class Gungnir(discord.Client):
         respons=r.get(base_url).json()
 
         return respons[0]['url']
-    def bib_help(self,msg,no_links):
+    def bib_help(self,msg,no_links=False):
         c = random.choice(bib.sins_e)
         if type(c)==type(f):
             c=c(msg)
