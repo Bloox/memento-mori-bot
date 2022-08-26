@@ -620,18 +620,18 @@ class Libra:
     "Sprawiedliwy generator"
     def __init__(self) -> None:
         self.deck = sins_e.copy()
-        self.used=[]
 
     def gen(self):
         "Generate output"
+        #print(len(self.deck))
         if len(self.deck)!=1:
             element=random.choice(self.deck)
             self.deck.remove(element)
-            self.used.append(element)
+
         else:
+            #print('refil')
             element=self.deck[0]
-            self.deck=self.used
-            self.used.clear()
+            self.deck=sins_e.copy()
         return element
         
 
@@ -675,4 +675,3 @@ names = [
 
 #print(minecraft_splash(0))
 print(f"Zarejestrowane nicki:{len(names)}")
-print(baba_generator(Dummy()))
