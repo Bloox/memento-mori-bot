@@ -20,7 +20,7 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.32"
+version="42.0.004.4"
 version_name="Nick name extension"
 
 def f():
@@ -114,6 +114,8 @@ class Gungnir(discord.Client):
                             await msg.channel.send("-0.9165215479156338")
                         else:
                             await msg.channel.send("~")
+                elif msg.content.startswith("$baba"):
+                    await msg.channel.send(bib.baba_generator(""))
                 elif msg.content.startswith("$radek"):
                     await msg.channel.send(embed=self.get_radek())
                 
