@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.4"
-version_name="Nick name extension"
+version="42.0.004.45"
+version_name="No reapet updated"
 
 def f():
     return 0
@@ -48,20 +48,20 @@ class Gungnir(discord.Client):
         await channel.send("essteregglib:"+bib.version)
         await channel.send(f"> Name:"+bib.update_name)
         #discord.TextChannel(id=bot_info)
-
+        self.gez=bib.Libra()
     async def change_myself(self):
         await client.wait_until_ready()
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
         self.home = self.channel.guild
-        
+        gez = bib.Libra()
         while not client.is_closed():
             print('nick')
-
+            
             eff=random.choice(bib.names)
             print(self.home.me,eff)
             await self.home.me.edit(nick=eff)
 
-            decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True)
+            decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True,gen=gez)
             #discord.utils.get(self.get_all_members, id=self.id)
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit()
@@ -271,14 +271,16 @@ class Gungnir(discord.Client):
         respons=r.get(base_url).json()
 
         return respons[0]['url']
-    def bib_help(self,msg,no_links=False):
-        c = random.choice(bib.sins_e)
+    def bib_help(self,msg,no_links=False,gen=None):
+        if gen==None:
+            gen=self.gez
+        c = gen.gen()
         if type(c)==type(f):
             c=c(msg)
         if "%s" in c:
             c= c%msg.author.name
         while c.startswith("https://") & no_links:
-            c = random.choice(bib.sins_e)
+            c = gen.gen()
             if type(c)==type(f):
                 c=c(msg)
             if "%s" in c:

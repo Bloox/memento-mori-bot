@@ -1,8 +1,8 @@
 import random
 
-version="42. 7/0" #for every new version increase number befor /
+version="42. 7.001/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="BABA IS YOU: UPDATE"
+update_name="⮔ NO MORE" 
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
 def baba_generator(msg):
@@ -613,9 +613,27 @@ sins_e+=[f"lącznie napisałem: {len(sins_e)+1} tekstów do tego"]
 print(sins_e[-1])
 update_name+=f"; lines:{len(sins_e)}"
 
-sins_e+=[minecraft_splash]*3
+sins_e+=[minecraft_splash]*int(len(sins_e)*0.09)
 sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
 
+class Libra:
+    "Sprawiedliwy generator"
+    def __init__(self) -> None:
+        self.deck = sins_e.copy()
+        self.used=[]
+
+    def gen(self):
+        "Generate output"
+        if len(self.deck)!=1:
+            element=random.choice(self.deck)
+            self.deck.remove(element)
+            self.used.append(element)
+        else:
+            element=self.deck[0]
+            self.deck=self.used
+            self.used.clear()
+        return element
+        
 
 names = [
     "Prist of Konshu",
@@ -650,6 +668,7 @@ names = [
     "All IS NOT Baba",
     "KNOWING ONE",
     "Definition of knowledger",
+    "KIEROWNIK DZIAŁA IT: DARET"
 
 ]
 #print(random_title(Dummy(),indexB=-1))
