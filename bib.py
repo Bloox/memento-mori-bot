@@ -1,10 +1,33 @@
 import random
 
-version="42. 6,(9)+0,(0)1/0" #for every new version increase number befor /
+version="42. 7/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="Nick name update + 1 legendary text"
+update_name="BABA IS YOU: UPDATE"
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
+def baba_generator(msg):
+    
+    nouns = ['ROCK',"BABA","KEKE","WALL",'ME','ROBOT','BIRD','BOG','BELT','BUNNY','TEXT','LEVEL','ALL','LOVE',"UFO"]
+    adverbs= ["YOU","PUSH","PULL","MOVE","STOP","SHIFT","DEFEAT","HOT","MELT","OPEN","SHUT","SINK","WEAK","TELE","SWAP","WIN","WORD"]
+    rule=f"{random.choice(nouns)}"
+    condytionA = ["ON %s","NEAR %s","FACING %s","WITHOUT %s"]
+    prefix=["IDLE ","LONELY ","OFTEN ","SELDOM "]
+    beA=["HAS %s","EAT  %s", "FEAR %s","FOLOW %s","MAKE %s","MIMIC %s"]
+
+    if random.randint(0,3)==0:
+        rule=rule+' '+random.choice(condytionA)%random.choice(nouns)
+    elif random.randint(0,3)==0:
+        rule=rule+f" FEELING {random.choice(adverbs)}"
+    if random.randint(0,3)==0:
+        rule=random.choice(prefix)+rule
+    tt=random.randint(0,2)
+    if tt==0:
+        rule+=f' {random.choice(beA)%random.choice(nouns)}'
+    elif tt==1:
+        rule+=f' IS {random.choice(adverbs)}'
+    else:
+        rule+=f' IS {random.choice(nouns)}'
+    return rule
 def minecraft_splash(msg):
     chosen=random.choice(splash)
     if chosen not in PRELOAD['SH']:
@@ -25,7 +48,8 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         "From upsidedown","Karl with the Hat","Tinkerer of existenc","Apollo","the Sun","Higher being",
         "of Greates evil","Death, last horsmen of the apocalypse","War, second horsmen of the apocalypse",
         "Conquest first horsmen of the apocalypse","Famine third horsmen of the apocalypse",
-        "Youtube algoritmes","TVN","TVP"
+        "Youtube algoritmes","TVN","TVP","Muse","Erabus", "Nyx","Oneiroi","Moros","Momus","Philotes",'Gares',
+        "Hypnos","Eris","Apate","Oizys"
     ]
     starters = [
         "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
@@ -33,6 +57,8 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         "Accuret ","Powered ",'Immortal ',"Actual ","Nonperfect ","Perfect ",
         "Better ","Worse ","Psychopathic ","Romantic ","Emo ","Memorable ",
         "Bitter ","Confused ","Bipolar ","Confused ", "Defused "
+        "Capitalistic ", "Comunistic ","Socialistic ","Democratic ", "Monarchist ",
+        "Individualistic "
     ]
     number=str(random.randrange(0,99))
     if len(number)<2:
@@ -46,6 +72,7 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         "Cousin of Hades","Grandparent of Gaia","the Great",'egyptian Goddes',
         "Godlike",f'number {number}','Doctor of Chaos',f"scp-4242240{number}",
         "The Dreamer","The Executer","Savior of worlds",'Destroyer of words',
+        "without a name","with name",
         "Great Dreamer",f"Higher Prist of {random.choice(gods)}",f"Prist of {random.choice(gods)}"
     ]
     num = [
@@ -565,7 +592,9 @@ sins_e_1 = [
     "Pozwalam, ja Marek",
     "Motel Polska",
     "Smigają dziś rośnilnki co?",
-    "proper british dishes part 35: pretzels on fucking fire"
+    "proper british dishes part 35: pretzels on fucking fire",
+    "https://cdn.discordapp.com/attachments/998700147955486740/1012019326452256841/unknown.png",
+    baba_generator,baba_generator,baba_generator,baba_generator,baba_generator,baba_generator
 ]
 
 sins_e+=sins_e_1
@@ -621,10 +650,10 @@ names = [
     "All IS NOT Baba",
     "KNOWING ONE",
     "Definition of knowledger",
-    "https://cdn.discordapp.com/attachments/998700147955486740/1012019326452256841/unknown.png",
 
 ]
 #print(random_title(Dummy(),indexB=-1))
 
 #print(minecraft_splash(0))
 print(f"Zarejestrowane nicki:{len(names)}")
+print(baba_generator(Dummy()))
