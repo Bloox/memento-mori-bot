@@ -594,7 +594,6 @@ sins_e_1 = [
     "Smigają dziś rośnilnki co?",
     "proper british dishes part 35: pretzels on fucking fire",
     "https://cdn.discordapp.com/attachments/998700147955486740/1012019326452256841/unknown.png",
-    baba_generator,baba_generator,baba_generator,baba_generator,baba_generator,baba_generator
 ]
 
 sins_e+=sins_e_1
@@ -615,7 +614,7 @@ update_name+=f"; lines:{len(sins_e)}"
 
 sins_e+=[minecraft_splash]*int(len(sins_e)*0.09)
 sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
-
+sins_e+=[baba_generator]*5
 class Libra:
     "Sprawiedliwy generator"
     def __init__(self) -> None:
@@ -668,7 +667,7 @@ names = [
     "All IS NOT Baba",
     "KNOWING ONE",
     "Definition of knowledger",
-    "KIEROWNIK DZIAŁA IT: DARET"
+    "KIEROWNIK DZIAŁA IT: DARET",
 
 ]
 #print(random_title(Dummy(),indexB=-1))

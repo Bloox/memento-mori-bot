@@ -13,15 +13,15 @@ catapi = {
 }
 
 """
-import discord,os,asyncio
+import discord,os,asyncio,io
 import praw
 import time,random
 import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.45"
-version_name="No reapet updated"
+version="42.0.004.5"
+version_name="Sucharki: update"
 
 def f():
     return 0
@@ -146,6 +146,10 @@ class Gungnir(discord.Client):
                 elif msg.content.startswith("$version"):
                     await msg.channel.send("version:"+version)
                     await msg.channel.send("essteregglib:"+bib.version)
+                elif msg.content.startswith("$suchar"):
+                    data=self.Sachara()
+                    await msg.channel.send(f"Suchar dostarczony przez:{data[1]}",file=data[0])
+                    #await msg.channel.send(data[0])
             except Exception as e:
                 await msg.channel.send(f"{e}")
         #! SPECIAL EMBEDS!
@@ -219,7 +223,7 @@ class Gungnir(discord.Client):
         url="https://www.urbandictionary.com/define.php?term="+word.lower()
         website = r.get(url)
         if website.ok:
-            webpage = bs(website.text,'html')
+            webpage = bs(website.text,features="html.parser")
             definitions = webpage.select(".p-5")
             if rand == False:
                 definiton = definitions[0]
@@ -286,6 +290,20 @@ class Gungnir(discord.Client):
             if "%s" in c:
                 c= c%msg.author.name
         return (c)
+    def Sachara(self):
+        web=r.get("http://piszsuchary.pl/losuj")
+        
+        page=bs(web.text,features="html.parser")
+        img=page.select_one(".cytat>.kot_na_suchara > a > img")['src']
+        
+        use=img.split("_by_")[1].split('.')
+        
+        
+        autor=use[0]
+        format=use[1]
+        this=discord.File(io.BytesIO(r.get(img).content),f"suchar.{format}")
+
+        return [this,autor]
 client = Gungnir()
 client.loop.create_task(client.change_myself())
 client.run(token.token)
