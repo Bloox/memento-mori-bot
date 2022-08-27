@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.6"
-version_name="Kustomowe jednostki"
+version="42.0.004.69"
+version_name="Major $m update"
 
 def f():
     return 0
@@ -154,18 +154,52 @@ class Gungnir(discord.Client):
                     #await msg.channel.send(data[0])
                 elif msg.content.startswith("$m"):
                     args=msg.content.split(" ")
-                    inter=rightway.systemy[args[1]]
-                    data=float(args[2])
-                    jednostka=args[3]
-                    if jednostka in rightway.jednostki['czas']:
-                        data=rightway.base_convert(data,rightway.jednostki['czas'][jednostka])
-                        await msg.channel.send(inter.czas(data))
-                    elif jednostka in rightway.jednostki['dlug']:
-                        data=rightway.base_convert(data,rightway.jednostki['dlug'][jednostka])
-                        await msg.channel.send(inter.dlug(data))
-                    elif jednostka in rightway.jednostki['waga']:
-                        data=rightway.base_convert(data,rightway.jednostki['waga'][jednostka])
-                        await msg.channel.send(inter.waga(data))
+                    if len(args)==4:
+                        inter=rightway.systemy[args[1]]
+                        data=float(args[2])
+                        jednostka=args[3]
+                        if jednostka in rightway.jednostki['czas']:
+                            data=rightway.base_convert(data,rightway.jednostki['czas'][jednostka])
+                            await msg.channel.send(inter.czas(data))
+                        elif jednostka in rightway.jednostki['dlug']:
+                            data=rightway.base_convert(data,rightway.jednostki['dlug'][jednostka])
+                            await msg.channel.send(inter.dlug(data))
+                        elif jednostka in rightway.jednostki['waga']:
+                            data=rightway.base_convert(data,rightway.jednostki['waga'][jednostka])
+                            await msg.channel.send(inter.waga(data))
+                    if len(args)==1:
+                        text="""```txt
+HELP MSG for M:
+$m (system) (data) (jednostka) -> Konwertuje jednostke
+$m -> This msg
+$m list -> Lista dostępnych systemów
+$m list-(jednostka) (czas) -> konweruje jednostke we wsyzstkich dostępnych systemach
+                        ```"""
+                    if len(args)==2:
+                        if args[1]=="list":
+                            await msg.channel.send(rightway.systemy.keys())
+                    if len(args)==3:
+                        if args[1].startswith("list"):
+                            print("yes")
+                            jednostka=args[1].split("-")[1]
+                            data=float(args[2])
+                            if jednostka in rightway.jednostki['czas']:
+                                data=rightway.base_convert(data,rightway.jednostki['czas'][jednostka])
+                                tryb='czas'
+                            elif jednostka in rightway.jednostki['dlug']:
+                                data=rightway.base_convert(data,rightway.jednostki['dlug'][jednostka])
+                                tryb='dlug'
+                            elif jednostka in rightway.jednostki['waga']:
+                                data=rightway.base_convert(data,rightway.jednostki['waga'][jednostka])
+                                tryb='waga'
+                            else:
+                                assert jednostka not in rightway.jednostki
+                            text=""
+                            for i in rightway.systemy:
+                                if i != "SI":
+
+                                    text+=f"{i}: {getattr(rightway.systemy[i],tryb)(data)}\n"
+                            await msg.channel.send(text)
             except Exception as e:
                 await msg.channel.send(f"{e}")
         #! SPECIAL EMBEDS!
