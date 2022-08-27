@@ -47,6 +47,8 @@ class Gungnir(discord.Client):
         await channel.send(f"> Name:{version_name}")
         await channel.send("essteregglib:"+bib.version)
         await channel.send(f"> Name:"+bib.update_name)
+        await channel.send(f"Jednostki:"+rightway.version)
+        await channel.send("> Name:"+rightway.name)
         #discord.TextChannel(id=bot_info)
         self.gez=bib.Libra()
     async def change_myself(self):

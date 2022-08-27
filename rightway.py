@@ -2,6 +2,8 @@
 waga:gram
 czas:minuty
 długość:cm"""
+version="2"
+name="CCC :)"
 def base_convert(j,d):
     if d[0]=='d':return j/d[1]
     elif d[0]=='m':return j*d[1]
@@ -30,8 +32,36 @@ class Cu_Ol_Ln:
         return f"{cm/self.lenght_number}{self.lenght_symbol}"
     def czas(self,min):
         return f"{min/self.time_number}{self.time_symbol}"
+class BBB:
+    "Jednostak bananowej miary"
+    lenght="🍌m"
+    lenght_number=12.5
+    mass="🍌g"
+    mass_number=170
+    time="🍌c"
+    time_number=(365*24*60)*3+(366*24*60)
+    def waga(self,g):
+        return f"{g/self.mass_number}{self.mass}"
+    def dlug(self,cm):
+        return f"{cm/self.lenght_number}{self.lenght}"
+    def czas(self,min):
+        return f"{min/self.time_number}{self.time}"
+class ccc:
+    mass="cal/c²"
+    mass_number=4.65532783453*(10**-14) #też około
+    length="c/C₄"
+    length_number=1_145_883.651147*100 #około
+    time="1/C₄"
+    time_number=0.0038222564329 * 60 #około
 
-systemy={"SI":Si(),"Cool":Cu_Ol_Ln()}
+    def waga(self,g):
+        return f"{g/self.mass_number}{self.mass}"
+    def dlug(self,cm):
+        return f"{cm/self.lenght_number}{self.lenght}"
+    def czas(self,min):
+        return f"{min/self.time_number}{self.time}"
+
+systemy={"SI":Si(),"Cool":Cu_Ol_Ln(),'bbb':BBB(),"🍌":BBB(),"ccc":ccc()}
 jednostki={
     "czas":{"s":['d',60],"m":['m',1],"H":['m',60],'d':['m',60*24]},
     "dlug":{'mm':['d',10],'cm':['m',1],"m":["m",100],'km':['m',100000]},
