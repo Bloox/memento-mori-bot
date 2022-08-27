@@ -594,6 +594,11 @@ sins_e_1 = [
     "Smigają dziś rośnilnki co?",
     "proper british dishes part 35: pretzels on fucking fire",
     "https://cdn.discordapp.com/attachments/998700147955486740/1012019326452256841/unknown.png",
+    "To geniusz doktorze, geniusz, geniusz ale niestety geniusz zła, napoleon zbrodni!",
+    "Chyba nikt nie ma lepszego mniemanie o tobie niż ja, i ja myśle że jesteś oślizgłym,obżydliwym ,szczurem ściekowym",
+    "Zwycieżył umysł, większego rzędu, czylia JA! (Sala kinowa w śmiech)",
+    "Nie masz pojęcia jaka to była niewypowiedziana rozskosz, zastanawianiem się nad wyborem najbardziej widowsikowego sposobu\nMiałem wiele pomysłow, że sam nie wiecdiząłm który wybrać, więc wybrałem wszystkie",
+    f"{note}Bądz zdrów,ten zwrot znaczenie głebsze ma{note}"
 ]
 
 sins_e+=sins_e_1
@@ -668,6 +673,9 @@ names = [
     "KNOWING ONE",
     "Definition of knowledger",
     "KIEROWNIK DZIAŁA IT: DARET",
+    "Professor Ratigan",
+    "notGlad OS",
+    "Felicja",
 
 ]
 #print(random_title(Dummy(),indexB=-1))
