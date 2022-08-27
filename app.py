@@ -13,15 +13,15 @@ catapi = {
 }
 
 """
-import discord,os,asyncio,io
+import discord,os,asyncio,io,rightway
 import praw
 import time,random
 import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.5"
-version_name="Sucharki: update"
+version="42.0.004.6"
+version_name="Kustomowe jednostki"
 
 def f():
     return 0
@@ -150,6 +150,20 @@ class Gungnir(discord.Client):
                     data=self.Sachara()
                     await msg.channel.send(f"Suchar dostarczony przez:{data[1]}",file=data[0])
                     #await msg.channel.send(data[0])
+                elif msg.content.startswith("$m"):
+                    args=msg.content.split(" ")
+                    inter=rightway.systemy[args[1]]
+                    data=float(args[2])
+                    jednostka=args[3]
+                    if jednostka in rightway.jednostki['czas']:
+                        data=rightway.base_convert(data,rightway.jednostki['czas'][jednostka])
+                        await msg.channel.send(inter.czas(data))
+                    elif jednostka in rightway.jednostki['dlug']:
+                        data=rightway.base_convert(data,rightway.jednostki['dlug'][jednostka])
+                        await msg.channel.send(inter.dlug(data))
+                    elif jednostka in rightway.jednostki['waga']:
+                        data=rightway.base_convert(data,rightway.jednostki['waga'][jednostka])
+                        await msg.channel.send(inter.waga(data))
             except Exception as e:
                 await msg.channel.send(f"{e}")
         #! SPECIAL EMBEDS!
