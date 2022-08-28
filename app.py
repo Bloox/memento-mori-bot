@@ -56,6 +56,7 @@ class Gungnir(discord.Client):
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
         self.home = self.channel.guild
         gez = bib.Libra()
+        """"""
         while not client.is_closed():
             print('nick')
             
