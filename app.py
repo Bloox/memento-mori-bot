@@ -52,6 +52,7 @@ class Gungnir(discord.Client):
         #discord.TextChannel(id=bot_info)
         self.gez=bib.Libra()
     async def change_myself(self):
+        counter= -1
         await client.wait_until_ready()
         
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
@@ -59,18 +60,20 @@ class Gungnir(discord.Client):
         gez = bib.Libra()
         """"""
         while not client.is_closed():
+            counter+=1
             #print('nick')
             
             eff=random.choice(bib.names)
-            
-            [await server.me.edit(nick=eff) for server in self.guilds]
+            if counter==4:
+                counter=-1
+                [await server.me.edit(nick=eff) for server in self.guilds]
 
             decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True,gen=gez)
             #discord.utils.get(self.get_all_members, id=self.id)
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit()
-
-            await asyncio.sleep(60)
+            
+            await asyncio.sleep(120)
     async def on_message(self,msg):
         #*COMMENDS
         if msg.content.startswith("$"):
