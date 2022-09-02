@@ -598,7 +598,9 @@ sins_e_1 = [
     "Chyba nikt nie ma lepszego mniemanie o tobie niż ja, i ja myśle że jesteś oślizgłym,obżydliwym ,szczurem ściekowym",
     "Zwycieżył umysł, większego rzędu, czylia JA! (Sala kinowa w śmiech)",
     "Nie masz pojęcia jaka to była niewypowiedziana rozskosz, zastanawianiem się nad wyborem najbardziej widowsikowego sposobu\nMiałem wiele pomysłow, że sam nie wiecdiząłm który wybrać, więc wybrałem wszystkie",
-    f"{note}Bądz zdrów,ten zwrot znaczenie głebsze ma{note}"
+    f"{note}Bądz zdrów,ten zwrot znaczenie głebsze ma{note}",
+    "Bas-sooner or Later",
+    "Roses are red, Vialots are blue... i won't finish sentence because i can't ryhm"
 ]
 
 sins_e+=sins_e_1

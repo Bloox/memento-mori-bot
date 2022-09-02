@@ -53,16 +53,17 @@ class Gungnir(discord.Client):
         self.gez=bib.Libra()
     async def change_myself(self):
         await client.wait_until_ready()
+        
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
         self.home = self.channel.guild
         gez = bib.Libra()
         """"""
         while not client.is_closed():
-            print('nick')
+            #print('nick')
             
             eff=random.choice(bib.names)
-            print(self.home.me,eff)
-            await self.home.me.edit(nick=eff)
+            
+            [await server.me.edit(nick=eff) for server in self.guilds]
 
             decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True,gen=gez)
             #discord.utils.get(self.get_all_members, id=self.id)
