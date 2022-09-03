@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup as bs
 import key as token
 import bib
 version="42.0.004.69"
-version_name="Major $m update"
+version_name="Added Babel fucntionality"
 
 def f():
     return 0
