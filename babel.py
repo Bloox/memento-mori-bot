@@ -68,7 +68,7 @@ class Runy(Lang):
             else:
                 newtext+="¿"
         return newtext
-langs = {"hex":Hexa(),'Hexa':Hexa()} 
+langs = {"hex":Hexa(),'Hexa':Hexa(),"Runy":Runy()} 
 
 def translate_to(text,lang=None):
     if lang==None:lang=random.choice(langs)
