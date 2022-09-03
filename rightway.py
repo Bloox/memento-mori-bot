@@ -89,6 +89,20 @@ class Pi:
                 return f"{int(data)}π rad"
             else:
                 return f"{data}π rad"
+class Redditor:
+    "Jednostak bananowej miary"
+    lenght="RM"
+    lenght_number=210.312
+    mass="RKG"
+    mass_number=31488.382
+    time="RS"
+    time_number= 2.2092
+    def waga(self,g):
+        return f"{g/self.mass_number}{self.mass}"
+    def dlug(self,cm):
+        return f"{cm/self.lenght_number}{self.lenght}"
+    def czas(self,min):
+        return f"{min/self.time_number}{self.time}"
 systemy={"SI":Si(),"Cool":Cu_Ol_Ln(),'bbb':BBB(),"🍌":BBB(),"ccc":ccc(),'pi':Pi()}
 jednostki={
     "czas":{"s":['d',60],"min":['m',1],"h":['m',60],'d':['m',60*24]},
