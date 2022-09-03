@@ -13,7 +13,7 @@ catapi = {
 }
 
 """
-import discord,os,asyncio,io,rightway
+import discord,os,asyncio,io,rightway,babel
 import praw
 import time,random
 import requests as r
@@ -157,6 +157,22 @@ class Gungnir(discord.Client):
                     data=self.Sachara()
                     await msg.channel.send(f"Suchar dostarczony przez:{data[1]}",file=data[0])
                     #await msg.channel.send(data[0])
+                elif msg.content.startswith("$babel-to"):
+                    #print("babel")
+                    data=msg.content.split(" ")
+                    lang=data[1]
+                    if lang=="0":lang=None
+                    string=" ".join(data[2:])
+                    #print(babel.translate_to(string, lang))
+                    await msg.channel.send(babel.translate_to(string, lang))
+                elif msg.content.startswith("$babel-from"):
+                    #print("babel")
+                    data=msg.content.split(" ")
+                    lang=data[1]
+                    string=" ".join(data[2:])
+                    #print(babel.translate_to(string, lang))
+                    print(string)
+                    await msg.channel.send(babel.translate_from(string, lang))
                 elif msg.content.startswith("$m"):
                     args=msg.content.split(" ")
                     if len(args)==4:

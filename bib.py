@@ -1,4 +1,5 @@
 import random
+import babel
 
 version="42. 7.001/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
@@ -630,6 +631,7 @@ class Libra:
     def gen(self):
         "Generate output"
         #print(len(self.deck))
+        
         if len(self.deck)!=1:
             element=random.choice(self.deck)
             self.deck.remove(element)
@@ -638,7 +640,10 @@ class Libra:
             #print('refil')
             element=self.deck[0]
             self.deck=sins_e.copy()
-        return element
+        if (random.choice([0,0,0,0,0,0,1])==0)|isinstance(element,type(minecraft_splash)):
+            return element
+        else:
+            return babel.translate_to(element)
         
 
 names = [
