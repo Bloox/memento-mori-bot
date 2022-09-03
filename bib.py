@@ -640,7 +640,7 @@ class Libra:
             #print('refil')
             element=self.deck[0]
             self.deck=sins_e.copy()
-        if (random.randint(0,1000)==0)|isinstance(element,type(minecraft_splash)):
+        if (random.randint(0,1000)!=0)|isinstance(element,type(minecraft_splash)):
             return element
         else:
             return babel.translate_to(element)
