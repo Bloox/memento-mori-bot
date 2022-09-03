@@ -90,7 +90,7 @@ class Pi:
             else:
                 return f"{data}π rad"
 class Redditor:
-    "Jednostak bananowej miary"
+    "Reditor"
     lenght="RM"
     lenght_number=210.312
     mass="RKG"
@@ -103,7 +103,7 @@ class Redditor:
         return f"{cm/self.lenght_number}{self.lenght}"
     def czas(self,min):
         return f"{min/self.time_number}{self.time}"
-systemy={"SI":Si(),"Cool":Cu_Ol_Ln(),'bbb':BBB(),"🍌":BBB(),"ccc":ccc(),'pi':Pi()}
+systemy={"SI":Si(),"Cool":Cu_Ol_Ln(),'bbb':BBB(),"🍌":BBB(),"ccc":ccc(),'pi':Pi(),'r/si':Redditor()}
 jednostki={
     "czas":{"s":['d',60],"min":['m',1],"h":['m',60],'d':['m',60*24]},
     "dlug":{'mm':['d',10],'cm':['m',1],"m":["m",100],'km':['m',100000]},
