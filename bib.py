@@ -1,7 +1,7 @@
 import random
 import babel
 
-version="42. 7.001/0" #for every new version increase number befor /
+version="42. 7.003/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
 update_name="⮔ NO MORE" 
 splash=["terra.txt",'minecraft.txt']
