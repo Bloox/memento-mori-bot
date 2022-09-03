@@ -2,8 +2,8 @@
 waga:gram
 czas:minuty
 długość:cm"""
-version="2"
-name="Pi"
+version="3"
+name="r/si"
 def base_convert(j,d):
     if d[0]=='d':return j/d[1]
     elif d[0]=='m':return j*d[1]
