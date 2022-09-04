@@ -20,8 +20,43 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.7"
-version_name="Added Babel fucntionality"
+version="42.0.004.8"
+version_name="Diskney+"
+
+def card_analize(card):
+    data={"subchild":"https://dsny.pl"+card['href']}
+    
+    full=r.get(data['subchild'])
+    full=bs(full.text,features="html.parser")
+
+    data['rating']=card.select_one("button > div.MuiCardHeader-root.css-1yg7hz4 > div.MuiCardHeader-avatar.css-1p83tvv > div").text
+    data['cat'] = card.select_one("button > div.MuiCardHeader-root.css-1yg7hz4 > div.MuiCardHeader-content.css-11qjisw > span.MuiTypography-root.MuiTypography-body2.MuiCardHeader-title.css-no131b").text
+    data['metadata']=card.select_one("div.MuiCardHeader-root.css-1yg7hz4 > div.MuiCardHeader-content.css-11qjisw > span.MuiTypography-root.MuiTypography-body2.MuiCardHeader-subheader.css-1m15n0u").text.split(',')
+    data['formatt']=data['metadata'][0]
+    meta=data['metadata'][1][1:]
+    if "season" in meta:
+        data['type']="Series"
+        data['seasons']=meta.split(' ')[0]
+        data['episodes']=full.select_one("#__next > div > div.MuiBox-root.css-l2vy7a > div > div.MuiBox-root.css-1hmjhwl > aside > div.MuiBox-root.css-4mo7ls > div:nth-child(2) > div > div > div:nth-child(8)").text
+    else:
+        czas=meta.split(' ')
+        #print(czas)
+        h=int(czas[0][:-1])
+        m=int(czas[1][:-3])
+        s=int(czas[2][:-1])
+        total=(h*60)+(m)+(s/60)
+        if total<30:
+            data['type']="short"
+        else:
+            data['type']="movie"    
+        data['span']={"total":total,"h":h,"min":m,"s":s}
+    data['img']=card.select_one("button > div.MuiBox-root.css-79elbk > div.MuiBox-root.css-i94kc1 > img")['src']
+    data['title']=card.select_one("button > div.MuiCardContent-root.css-1qw96cp > h2 > strong").text
+    data['desc']=card.select_one("button > div.MuiCardContent-root.css-1qw96cp > p").text
+    data['watch-url']=full.select_one("#__next > div > div.MuiBox-root.css-l2vy7a > div > div.MuiBox-root.css-1hmjhwl > aside > div.MuiBox-root.css-4mo7ls > a")['href']
+    data['genres']=[i.text for i in full.select("#__next > div > div.MuiBox-root.css-l2vy7a > div > div.MuiBox-root.css-1hmjhwl > main > div.MuiBox-root.css-6zeo2z > div:nth-child(1) > div:nth-child(2) > div > a")]
+    data['fran']=[i.text for i in full.select("#__next > div > div.MuiBox-root.css-l2vy7a > div > div.MuiBox-root.css-1hmjhwl > main > div.MuiBox-root.css-6zeo2z > div:nth-child(2) > div:nth-child(2) > div > a")]
+    return data
 
 def f():
     return 0
@@ -173,6 +208,9 @@ class Gungnir(discord.Client):
                     #print(babel.translate_to(string, lang))
                     print(string)
                     await msg.channel.send(babel.translate_from(string, lang))
+                elif msg.content.startswith("$dis+ "):
+                    serchterm=msg.content.split(' ')[1]
+                    await msg.channel.send(embed=self.disney_sercher(serchterm))
                 elif msg.content.startswith("$m"):
                     args=msg.content.split(" ")
                     if len(args)==4:
@@ -256,6 +294,34 @@ $m list-(jednostka) (czas) -> konweruje jednostke we wsyzstkich dostępnych syst
                     await i.delete()
                 
                 await msg.channel.send("Mors ad hunc rivum venit")
+    def disney_sercher(self,term):
+        webpage=r.get(f"https://dsny.pl/library/en/pl?search={term}")
+        site=bs(webpage.text,features="html.parser")
+        card=site.select_one("#__next > div > div.MuiContainer-root.MuiContainer-maxWidthLg.MuiContainer-fixed.css-1r3upk9 > div.MuiBox-root.css-1tw4wyn > div.MuiBox-root.css-3rf0uh > a")
+        data=card_analize(card)
+        embed=discord.Embed(
+                url=data['subchild'],
+                title=data['title'],
+                color=discord.Colour.from_rgb(0x1b,0x1d,0x3a),#1B1D3
+        )
+        if data['rating']!='n/a':
+            rat=int(float(data['rating']))
+            embed.add_field(name="Rating:",value=f"{'★'*rat}{'☆'*(10-rat)}",inline=True)
+        else:
+            embed.add_field(name="Rating:",value=f"n/a",inline=True)
+        embed.add_field(name="Cat:",value=data['cat'],inline=True)
+        embed.add_field(name="​",value="​",inline=False)
+        if data['type'].startswith("S"):
+            embed.add_field(name="Content:",value=f"{data['seasons']}season ({data['episodes']} episodes)",inline=True)
+        else:
+            embed.add_field(name="Lenghth:",value=f"{int(data['span']['total'])}m",inline=True)
+        embed.add_field(name="Type:",value=data['type'],inline=True)
+        embed.add_field(name="Description:",value=data['desc'],inline=False)
+        embed.add_field(name="Genres:",value=", ".join(data['genres']),inline=True)
+        embed.add_field(name="Franshise:",value=", ".join(data['fran']),inline=True)
+        embed.set_image(url=data['img'])
+        embed.set_author(name="WATCH ON Disney+",url=data['watch-url'],icon_url="https://pageflows.imgix.net/media/logos/disneyPlusLogo.jpg?auto=compress&ixlib=python-1.1.2&s=62e82d60ee2ef660457b71f39fd0af20")
+        return embed
     
     def get_radek(self,num=None):
         #being 
