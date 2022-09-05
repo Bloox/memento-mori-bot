@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.8"
-version_name="Diskney+"
+version="42.0.004.9"
+version_name="nick_fix"
 
 def card_analize(card):
     data={"subchild":"https://dsny.pl"+card['href']}
@@ -87,28 +87,35 @@ class Gungnir(discord.Client):
         #discord.TextChannel(id=bot_info)
         self.gez=bib.Libra()
     async def change_myself(self):
+        #print("chanher")
         counter= -1
         await client.wait_until_ready()
         
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
         self.home = self.channel.guild
         gez = bib.Libra()
+        dummu="Memento Mori Bot"
+        defult=bib.Dummy(dummu)
+        [await server.me.edit(nick=dummu) for server in self.guilds]
         """"""
         while not client.is_closed():
             counter+=1
-            #print('nick')
+            print('nick')
             
-            eff=random.choice(bib.names)
+            
             if counter==4:
+                eff=random.choice(bib.names)
                 counter=-1
                 [await server.me.edit(nick=eff) for server in self.guilds]
+                defult=bib.Dummy(eff)
 
-            decsr = self.bib_help(msg=bib.Dummy(eff),no_links=True,gen=gez)
+            decsr = self.bib_help(msg=defult,no_links=True,gen=gez)
             #discord.utils.get(self.get_all_members, id=self.id)
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit()
             
-            await asyncio.sleep(120)
+            await asyncio.sleep(30)
+            #input(decsr)
     async def on_message(self,msg):
         #*COMMENDS
         if msg.content.startswith("$"):
@@ -442,5 +449,6 @@ $m list-(jednostka) (czas) -> konweruje jednostke we wsyzstkich dostępnych syst
 
         return [this,autor]
 client = Gungnir()
+print("text")
 client.loop.create_task(client.change_myself())
 client.run(token.token)
