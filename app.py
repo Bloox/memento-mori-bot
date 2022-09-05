@@ -100,7 +100,7 @@ class Gungnir(discord.Client):
         """"""
         while not client.is_closed():
             counter+=1
-            print('nick')
+            #print('nick',counter)
             
             
             if counter==4:
@@ -111,10 +111,11 @@ class Gungnir(discord.Client):
 
             decsr = self.bib_help(msg=defult,no_links=True,gen=gez)
             #discord.utils.get(self.get_all_members, id=self.id)
+            #print(decsr)
             await self.change_presence(activity=discord.Game(name=decsr))
             #await self.user.edit()
             
-            await asyncio.sleep(30)
+            await asyncio.sleep(45)
             #input(decsr)
     async def on_message(self,msg):
         #*COMMENDS
