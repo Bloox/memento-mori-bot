@@ -92,6 +92,8 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         indexB=random.randrange(0,len(enders))
     return msg.author.name +" "+ starters[indexA]*starter + enders[indexB]*ender + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
 sins_e = [
+    "Play also Abtrakton 2",
+    "https://igraszkowski.itch.io/abstrakton-2",
     "your only sin is iq %s",
     "your sin is amount of social interactions %s",
     "yes you have many of them",
