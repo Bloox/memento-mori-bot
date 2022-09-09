@@ -1,9 +1,9 @@
 import random
 import babel
 
-version="42. 7.003/0" #for every new version increase number befor /
+version="42. 7.069/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="⮔ NO MORE" 
+update_name="Kapelusze mają dusze" 
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
 def baba_generator(msg):
@@ -557,7 +557,8 @@ sins_e = [
     "The Spiffing Burger",
     "Stillingar",
     "Simon's dog",
-    "Reid Cempaing"
+    "Reid Cempaing",
+    "Kapelusze mają dusze!"
 ]
 
 
@@ -603,7 +604,8 @@ sins_e_1 = [
     "Nie masz pojęcia jaka to była niewypowiedziana rozskosz, zastanawianiem się nad wyborem najbardziej widowsikowego sposobu\nMiałem wiele pomysłow, że sam nie wiecdiząłm który wybrać, więc wybrałem wszystkie",
     f"{note}Bądz zdrów,ten zwrot znaczenie głebsze ma{note}",
     "Bas-sooner or Later",
-    "Roses are red, Vialots are blue... i won't finish sentence because i can't ryhm"
+    "Roses are red, Vialots are blue... i won't finish sentence because i can't ryhm",
+    "#Kapeluszearesuperior",
 ]
 
 sins_e+=sins_e_1
@@ -685,7 +687,12 @@ names = [
     "Professor Ratigan",
     "notGlad OS",
     "Felicja",
-    "Saul goodman, better call Saul"
+    "Priest of priests",
+    "2d gamer",
+    "Priest of Kapelusze",
+    "Technik-informatyk-programista",
+    "Saul goodman, better call Saul",
+    "#Kapeluszmonster"
 
 ]
 #print(random_title(Dummy(),indexB=-1))

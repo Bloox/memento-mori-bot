@@ -20,8 +20,8 @@ import requests as r
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.004.9"
-version_name="nick_fix"
+version="42.0.005.0"
+version_name="nbłagaj działaj tym razem"
 
 def card_analize(card):
     data={"subchild":"https://dsny.pl"+card['href']}
@@ -88,7 +88,7 @@ class Gungnir(discord.Client):
         self.gez=bib.Libra()
     async def change_myself(self):
         #print("chanher")
-        counter= -1
+        counter= 3
         await client.wait_until_ready()
         
         self.channel = discord.utils.get(self.get_all_channels(), id=1008723567896182885)
@@ -104,16 +104,21 @@ class Gungnir(discord.Client):
             
             
             if counter==4:
-                eff=random.choice(bib.names)
-                counter=-1
-                [await server.me.edit(nick=eff) for server in self.guilds]
-                defult=bib.Dummy(eff)
-
-            decsr = self.bib_help(msg=defult,no_links=True,gen=gez)
-            #discord.utils.get(self.get_all_members, id=self.id)
-            #print(decsr)
-            await self.change_presence(activity=discord.Game(name=decsr))
-            #await self.user.edit()
+                try:
+                    eff=random.choice(bib.names)
+                    
+                    [await server.me.edit(nick=eff) for server in self.guilds]
+                    defult=bib.Dummy(eff)
+                    counter=-1
+                except:
+                    counter=3
+            try:
+                decsr = self.bib_help(msg=defult,no_links=True,gen=gez)
+                #discord.utils.get(self.get_all_members, id=self.id)
+                #print(decsr)
+                await self.change_presence(activity=discord.Game(name=decsr))
+                #await self.user.edit()
+            except:...
             
             await asyncio.sleep(45)
             #input(decsr)
