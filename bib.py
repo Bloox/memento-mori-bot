@@ -50,7 +50,7 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         "of Greates evil","Death, last horsmen of the apocalypse","War, second horsmen of the apocalypse",
         "Conquest first horsmen of the apocalypse","Famine third horsmen of the apocalypse",
         "Youtube algoritmes","TVN","TVP","Muse","Erabus", "Nyx","Oneiroi","Moros","Momus","Philotes",'Gares',
-        "Hypnos","Eris","Apate","Oizys"
+        "Hypnos","Eris","Apate","Oizys","Other Self"
     ]
     starters = [
         "Bloody ","Deadly ","Precise ","Unknow ","Forgoten ",'Dead ',
@@ -74,7 +74,7 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         "Godlike",f'number {number}','Doctor of Chaos',f"scp-4242240{number}",
         "The Dreamer","The Executer","Savior of worlds",'Destroyer of words',
         "without a name","with name",
-        "Great Dreamer",f"Higher Prist of {random.choice(gods)}",f"Prist of {random.choice(gods)}"
+        "Great Dreamer",f"Higher Priest of {random.choice(gods)}",f"Priest of {random.choice(gods)}"
     ]
     num = [
         "XCII",
@@ -659,19 +659,19 @@ class Libra:
         
 
 names = [
-    "Prist of Konshu",
+    "Priest of Konshu",
     "Memenot Mori",
     "Destroyer of worlds",
-    "Prist of Tanatos",
+    "Priest of Tanatos",
     "Halper of Stars",
     "5th Horsemen",
-    "Prist of Cats",
+    "Priest of Cats",
     "mr Death",
     "mr Law",
-    "Prist of Cthulhu",
+    "Priest of Cthulhu",
     "Conquerer",
-    "Prist of ♎︎",
-    "Prist of ♋︎",
+    "Priest of ♎︎",
+    "Priest of ♋︎",
     "Divine Ruler",
     "101010(2)",
     "Crazy Doctor",
@@ -700,8 +700,8 @@ names = [
     "Priest of Kapelusze",
     "Technik-informatyk-programista",
     "Saul goodman, better call Saul",
-    "#Kapeluszmonster"
-
+    "#Kapeluszmonster",
+    "Priest of :celeste:"
 ]
 #print(random_title(Dummy(),indexB=-1))
 
