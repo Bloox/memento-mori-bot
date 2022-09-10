@@ -1,9 +1,9 @@
 import random
 import babel
 
-version="42. 7.069/0" #for every new version increase number befor /
+version="42. 8/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="Kapelusze mają dusze" 
+update_name="https://www.youtube.com/watch?v=VHR_hboix34&ab_channel=Chrisnojoke" 
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
 def baba_generator(msg):
@@ -606,6 +606,14 @@ sins_e_1 = [
     "Bas-sooner or Later",
     "Roses are red, Vialots are blue... i won't finish sentence because i can't ryhm",
     "#Kapeluszearesuperior",
+    "Mój prywatny, osobisty szef",
+    "Czy wszystko okej? Nie, Jak najbardziej tak.",
+    "Wsazdzania języka do buzi podczas imprezy.",
+    "https://www.youtube.com/watch?v=VHR_hboix34&ab_channel=Chrisnojoke",
+    "Nie daramatyzytuj!",
+    "Dziękuje szanowni przyjaciele! to nie ja",
+    "To nie są zakupy, to jest dziecko, i ona wali do Niedzieli?",
+    "Moja Monika - Pan Marcin"
 ]
 
 sins_e+=sins_e_1
@@ -625,7 +633,7 @@ print(sins_e[-1])
 update_name+=f"; lines:{len(sins_e)}"
 
 sins_e+=[minecraft_splash]*int(len(sins_e)*0.09)
-sins_e+=[random_title]*int(len(sins_e)*0.24) #making this more often
+sins_e+=[random_title]*int(len(sins_e)*0.9) #making this more often
 sins_e+=[baba_generator]*5
 class Libra:
     "Sprawiedliwy generator"
