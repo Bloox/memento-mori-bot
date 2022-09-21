@@ -1,7 +1,7 @@
 import random
 import babel
 
-version="42. 8/0" #for every new version increase number befor /
+version="42. 8.1/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
 update_name="https://www.youtube.com/watch?v=VHR_hboix34&ab_channel=Chrisnojoke" 
 splash=["terra.txt",'minecraft.txt']
@@ -613,9 +613,14 @@ sins_e_1 = [
     "Nie daramatyzytuj!",
     "Dziękuje szanowni przyjaciele! to nie ja",
     "To nie są zakupy, to jest dziecko, i ona wali do Niedzieli?",
-    "Moja Monika - Pan Marcin"
+    "Moja Monika - Pan Marcin",
+    "I massively into swastikas, so I'm sure it's a pretty good sign right there",
+    "She says I'm dead to her, but could a dead man \"like\" a facebook post?",
+    "Tak towarzyszu, ta restuaracja jest nasza! Serwujemy memy dla wszystich za DARMO - Stalin 32.13.1942 10:65",
+    "I'm a tea person","Rules are made to be broken - Benjamin btd6",
+    "Ja nie jestem Komunistom, nie jestem też socjalistą, ja jestem anty-kapitalistą",
+    "Glory to Arstotzka!","\\LaTeX","\\KaTeX","\\frac{1}{0}",
 ]
-
 sins_e+=sins_e_1
 class DummName:
     def __init__(self,name="Memento Mori") -> None:
