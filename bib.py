@@ -1,9 +1,9 @@
 import random
 import babel
 
-version="42. 8.1/0" #for every new version increase number befor /
+version="42. 9/0" #for every new version increase number befor /
 note="𝅘𝅥𝆕"
-update_name="https://www.youtube.com/watch?v=VHR_hboix34&ab_channel=Chrisnojoke" 
+update_name="Latin, lingua magnorum" 
 splash=["terra.txt",'minecraft.txt']
 PRELOAD={"SH":{}}
 def baba_generator(msg):
@@ -620,6 +620,11 @@ sins_e_1 = [
     "I'm a tea person","Rules are made to be broken - Benjamin btd6",
     "Ja nie jestem Komunistom, nie jestem też socjalistą, ja jestem anty-kapitalistą",
     "Glory to Arstotzka!","\\LaTeX","\\KaTeX","\\frac{1}{0}",
+    "Terra incognita","Vanitas Vanitatum et omnia Vanitas","Carpe diem!",
+    "Mors a felibus","Homo, definition creations",""
+    "Iustitia est filum communicationis inter factum et ambitum moralem",
+    "Artificiosa intelligentia, bona fortuna!","Ludus est (un) sanitatis",
+    "Latin, lingua magnorum"
 ]
 sins_e+=sins_e_1
 class DummName:
@@ -706,7 +711,8 @@ names = [
     "Technik-informatyk-programista",
     "Saul goodman, better call Saul",
     "#Kapeluszmonster",
-    "Priest of :celeste:"
+    "Priest of :celeste:",
+    "native speaker of Latin"
 ]
 #print(random_title(Dummy(),indexB=-1))
 
