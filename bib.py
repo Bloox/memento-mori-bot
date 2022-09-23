@@ -621,7 +621,7 @@ sins_e_1 = [
     "Ja nie jestem Komunistom, nie jestem też socjalistą, ja jestem anty-kapitalistą",
     "Glory to Arstotzka!","\\LaTeX","\\KaTeX","\\frac{1}{0}",
     "Terra incognita","Vanitas Vanitatum et omnia Vanitas","Carpe diem!",
-    "Mors a felibus","Homo, definition creations",""
+    "Mors a felibus","Homo, definition creations"
     "Iustitia est filum communicationis inter factum et ambitum moralem",
     "Artificiosa intelligentia, bona fortuna!","Ludus est (un) sanitatis",
     "Latin, lingua magnorum"
