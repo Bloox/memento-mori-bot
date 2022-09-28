@@ -624,7 +624,8 @@ sins_e_1 = [
     "Mors a felibus","Homo, definition creations"
     "Iustitia est filum communicationis inter factum et ambitum moralem",
     "Artificiosa intelligentia, bona fortuna!","Ludus est (un) sanitatis",
-    "Latin, lingua magnorum"
+    "Latin, lingua magnorum",
+    "Dziękuje za informacje - ██",
 ]
 sins_e+=sins_e_1
 class DummName:
