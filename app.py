@@ -17,11 +17,12 @@ import discord,os,asyncio,io,rightway,babel
 import praw
 import time,random
 import requests as r
+import train
 from bs4 import BeautifulSoup as bs
 import key as token
 import bib
-version="42.0.005.0"
-version_name="nbłagaj działaj tym razem"
+version="42.0.006.0"
+version_name="Regio!!!"
 
 def card_analize(card):
     data={"subchild":"https://dsny.pl"+card['href']}
@@ -73,6 +74,7 @@ class Gungnir(discord.Client):
         self.reddit_timeout=0
         print(f"We are setup! USER: {self.user}")
         bot_info=1008723567896182885
+        """
         self.channel = discord.utils.get(self.get_all_channels(), id=bot_info)
         self.home = self.channel.guild
         channel= self.channel
@@ -84,6 +86,7 @@ class Gungnir(discord.Client):
         await channel.send(f"> Name:"+bib.update_name)
         await channel.send(f"Jednostki:"+rightway.version)
         await channel.send("> Name:"+rightway.name)
+        """
         #discord.TextChannel(id=bot_info)
         self.gez=bib.Libra()
     async def change_myself(self):
@@ -173,7 +176,9 @@ class Gungnir(discord.Client):
                     await msg.channel.send(bib.baba_generator(""))
                 elif msg.content.startswith("$radek"):
                     await msg.channel.send(embed=self.get_radek())
-                
+                elif msg.content.startswith("$goto"):
+                    data=msg.content.split(" ")
+                    await msg.channel.send(train.main(data))
                 elif msg.content.startswith("$title"):
                     ID=-random.randint(1,2)
                     data = bib.random_title(msg)
