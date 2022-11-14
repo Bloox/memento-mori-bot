@@ -40,6 +40,10 @@ def minecraft_splash(msg):
 
 
 def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
+    if hasattr(msg,"user")&(not hasattr(msg,"author")):
+            name=msg.user.display_name
+    else:
+            name=msg.author.display_name
     gods = [
         "Artemis","Athena","Hephaestus","Hades",'Tanatos',"Morpheus",'Tartarus',
         "Flying Spaghetti Monster","Cthulhu","True","Lie","Azothot","Spthot","Nyks","Chaos",
@@ -90,7 +94,7 @@ def random_title(msg,starter=1,ender=1,indexA=None,indexB=None):
         indexA=random.randrange(0,len(starters))
     if indexB==None:
         indexB=random.randrange(0,len(enders))
-    return msg.author.name +" "+ starters[indexA]*starter + enders[indexB]*ender + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
+    return name +" "+ starters[indexA]*starter + enders[indexB]*ender + ' ' + random.choice(num)*int((random.randrange(0,6)<1))
 sins_e = [
     "Play also Abtrakton 2",
     "https://igraszkowski.itch.io/abstrakton-2",
@@ -630,7 +634,7 @@ sins_e_1 = [
 sins_e+=sins_e_1
 class DummName:
     def __init__(self,name="Memento Mori") -> None:
-        self.name=name
+        self.display_name=name
     #name=
 class Dummy:
     def __init__(self,name="Memento Mori") -> None:

@@ -1,6 +1,7 @@
 import random
 from re import L
-
+version=2.0
+name="runes!"
 class Lang:
     def encoder(self,text):
         return text
@@ -68,7 +69,7 @@ class Runy(Lang):
             else:
                 newtext+="¿"
         return newtext
-langs = {"hex":Hexa(),'Hexa':Hexa(),"Runy":Runy()} 
+langs = {'Hexa':Hexa(),"Runy":Runy()} 
 
 def translate_to(text,lang=None):
     if lang==None:lang=random.choice(langs)
